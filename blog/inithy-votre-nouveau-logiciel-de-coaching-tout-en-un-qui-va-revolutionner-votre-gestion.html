@@ -12,22 +12,22 @@
 
       <link rel="icon" href="data:," />
 
-      <title>Store</title>
+      <title>INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion</title>
 
-      <link rel="canonical" href="https://inithy.build.superagency.io/store" />
-      <meta property="og:url" content="https://inithy.build.superagency.io/store"/>
-      <meta itemprop="url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="twitter:url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="description" content="" />
+      <link rel="canonical" href="https://inithy.build.superagency.io/blog/inithy-votre-nouveau-logiciel-de-coaching-tout-en-un-qui-va-revolutionner-votre-gestion" />
+      <meta property="og:url" content="https://inithy.build.superagency.io/blog/inithy-votre-nouveau-logiciel-de-coaching-tout-en-un-qui-va-revolutionner-votre-gestion"/>
+      <meta itemprop="url" content="https://inithy.build.superagency.io/blog/inithy-votre-nouveau-logiciel-de-coaching-tout-en-un-qui-va-revolutionner-votre-gestion"/>
+      <meta name="twitter:url" content="https://inithy.build.superagency.io/blog/inithy-votre-nouveau-logiciel-de-coaching-tout-en-un-qui-va-revolutionner-votre-gestion"/>
+      <meta name="description" content="Si vous êtes Coachs sportif, préparateur physique ou gérant de salle de sport, sachez qu'avec le logiciel de coaching INITHY, vous allez pouvoir créer des ateliers de coaching, des séances, des programmes sportifs et nutritionnels et bien plus encore !" />
       <meta property="og:site_name" content="inithy" />
-      <meta property="og:title" content="Store"/>
+      <meta property="og:title" content="INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:description" content=""/>
-      <meta itemprop="name" content="Store"/>
-      <meta itemprop="description" content=""/>
-      <meta name="twitter:title" content="Store"/>
+      <meta property="og:description" content="Si vous êtes Coachs sportif, préparateur physique ou gérant de salle de sport, sachez qu'avec le logiciel de coaching INITHY, vous allez pouvoir créer des ateliers de coaching, des séances, des programmes sportifs et nutritionnels et bien plus encore !"/>
+      <meta itemprop="name" content="INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion"/>
+      <meta itemprop="description" content="Si vous êtes Coachs sportif, préparateur physique ou gérant de salle de sport, sachez qu'avec le logiciel de coaching INITHY, vous allez pouvoir créer des ateliers de coaching, des séances, des programmes sportifs et nutritionnels et bien plus encore !"/>
+      <meta name="twitter:title" content="INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion"/>
       <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:description" content=""/>
+      <meta name="twitter:description" content="Si vous êtes Coachs sportif, préparateur physique ou gérant de salle de sport, sachez qu'avec le logiciel de coaching INITHY, vous allez pouvoir créer des ateliers de coaching, des séances, des programmes sportifs et nutritionnels et bien plus encore !"/>
       <script type="text/javascript">
         var WebPlatform = window.WebPlatform || {};
 
@@ -70,257 +70,75 @@
       <link rel="preload stylesheet" as="style" media="(max-width: 480px)"
             href="https://static.web-repository.com/t/theme25/css/trunk-480.min.css?v=912" id="style-480" class="stylesheet"/>
 
-      <script type="text/javascript">
-      WebPlatform.onReady(function () {
-        var root = $('#store-catalog-widget-1666071947663');
-        var hasQuickView = false;
-        var showBuyButtonInLists = false;
-        var sort = '';
-        var searchFilter = '';
-        var filterUrlPart = '';
-        var variationsFilter = null;
-        var sortByFilter = root.find('#sortByFilter');
-        var productsPerPageFilter = root.find('#productsPerPageFilter');
-        var category = '';
-        var lowerPriceRange = 0;
-        var upperPriceRange = Math.abs(100);
-        var maxPrice = Math.abs(100);
-        var subcategories = '';
-        var mobileStoreOverlay = root.find('#mobileStoreOverlay');
-        var storeProductsFilterWrapper = root.find('#storeProductsFilterWrapper');
-        var productFilterMobileButton = root.find('#productFilterMobileButton');
-        var variations = storeProductsFilterWrapper.find('.filter-by-variation');
-        var variationsFilterUrl = '';
-
-        if (variations.length > 0) {
-          variations.on('click', '.variation-filter-link', function (event) {
-            var li = $(event.target).closest('li').toggleClass('active');
-            var url = '';
-            variations.each(function (idx, variation) {
-              variation = $(variation);
-              var checked = variation.find('li.active');
-              if (checked.length > 0) {
-                var filterValues = '';
-                checked.each(function (idx, elem) {
-                  var filter = ($(elem).data('filter') || '') + '';
-                  if (filter) {
-                    if (filterValues !== '')
-                      filterValues += ',';
-                    filterValues += encodeURIComponent(filter.replace('&', '^'));
-                  }
-                });
-                if (filterValues !== '') {
-                  if (url !== '')
-                    url += '&';
-                  url += encodeURIComponent(variation.find('h3').text().replace('&', '^'));
-                  url += '=' + filterValues;
-                }
-              }
-            });
-            variationsFilterUrl = url;
-            refreshFiltering();
-          });
-        }
-
-        if (variationsFilter !== null) {
-          variations.each(function (idx, elem) {
-            var root = $(elem);
-            var heading = root.find('h3').text().toLowerCase();
-            var filtered = [];
-            for (var idx = 0; idx < variationsFilter.length; ++idx) {
-              if (variationsFilter[idx].name.toLowerCase() === heading) {
-                filtered = variationsFilter[idx].values;
-                break;
-              }
-            }
-            if (filtered.length > 0) {
-              var items = root.find('li');
-              items.each(function (idx, li) {
-                var li = $(li);
-                var filter = ((li.data('filter') || '') + '').toLowerCase();
-                for (var idx = 0; idx < filtered.length; ++idx) {
-                  if (filtered[idx].first.toLowerCase() === filter) {
-                    li.addClass('active');
-                    break;
-                  }
-                }
-              });
-            }
-          });
-        }
-
-        var refreshFiltering = function () {
-          var newSort = sortByFilter.val();
-          var newRows = +productsPerPageFilter.val();
-          var newUrl = WebPlatform.Store.baseUrl;
-          if (category !== '')
-            newUrl += '/category/' + category;
-          if (subcategories !== '')
-            newUrl += '/sub/' + subcategories;
-          if (variationsFilterUrl !== '')
-            newUrl += '/var/' + variationsFilterUrl;
-          if (newRows !== 4)
-            newUrl += '/rows/' + newRows;
-          if (newSort)
-            newUrl += '/sort/' + newSort;
-          if (searchFilter)
-            newUrl += '/search/' + encodeURI(searchFilter);
-          if (lowerPriceRange > 0 || upperPriceRange !== maxPrice)
-            newUrl += '/range/' + lowerPriceRange + ',' + upperPriceRange;
-          ClientTools.showLoader();
-          window.location.href = newUrl;
-        };
-        sortByFilter.val(sort).add(productsPerPageFilter).change(refreshFiltering);
-
-        try {
-          root.find('#productsFilter').on('click', '.has-subcategories > a', function (event) {
-            var elem = $(this);
-            var clickedOnArrow = $(event.target).is('.arrow');
-            var li = elem.parent();
-            if (!clickedOnArrow && li.hasClass('open') && li.children('ul').children('.active').length > 0)
-              return;
-            if (li.hasClass('open')) {
-              li.removeClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (li.children('ul').length > 0) {
-              li.addClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (clickedOnArrow) {
-              li.addClass('open');
-              WebPlatform.makeClientWebsiteRequest({
-                action: 'getStoreSubcategories',
-                data: {
-                  parent: elem.data('id')
-                },
-                onOk: function (result) {
-                  var categoriesPath = [elem.data('url')];
-                  var rootElem = elem.closest('ul');
-                  while (true) {
-                    if (rootElem.hasClass('filter-categories'))
-                      break;
-                    categoriesPath.push(rootElem.parent().children('a').data('url'));
-                    rootElem = rootElem.parent().closest('ul');
-                  }
-
-                  var baseUrl = WebPlatform.Store.baseUrl + '/category/';
-                  for (var idx = categoriesPath.length - 1; idx >= 0; --idx) {
-                    if (idx === categoriesPath.length - 1)
-                      baseUrl += categoriesPath[idx] + '/sub/';
-                    else
-                      baseUrl += categoriesPath[idx] + ',';
-                  }
-
-                  var categories = result.data;
-                  var markup = '<ul>';
-                  for (var idx = 0; idx < categories.length; ++idx) {
-                    var category = categories[idx];
-                    var hasSubcategories = category.left + 1 < category.right;
-                    markup += '<li class="' + (hasSubcategories ? 'has-subcategories' : '') + '">';
-                    markup += '<a data-url="' + category.url + '" data-id="' + category.id + '" href="' + baseUrl + category.url + filterUrlPart + '">' + category.name;
-                    if (hasSubcategories) {
-                      markup += '<div class="arrow"></div>';
-                    }
-                    markup += '</a>';
-                    markup += '</li>';
-                  }
-                  markup += '</ul>';
-                  elem.after(markup);
-                }
-              });
-              return WebPlatform.preventDefault(event);
-            }
-          });
-          var onPriceSliderChanged = $.debounce(800, function () {
-            var newUrl = WebPlatform.clearUrlParameter(window.location.href, 'range', WebPlatform.URL_PARAM_ANY);
-            newUrl = WebPlatform.clearUrlParameter(newUrl, 'page', WebPlatform.URL_PARAM_ANY);
-            if (!newUrl.endsWith('/'))
-              newUrl += '/';
-            newUrl += 'range/' + lowerPriceRange + ',' + upperPriceRange;
-            ClientTools.showLoader();
-            window.location.href = newUrl;
-          });
-          var searchFilterField = $('#searchFilter');
-          if (searchFilterField.length) {
-            var doSearch = function () {
-              var searchVal = searchFilterField.val().trim();
-              if (searchVal !== searchFilter) {
-                searchFilter = searchVal;
-                refreshFiltering();
-              }
-            };
-            searchFilterField.val(searchFilter).keypress(function (e) {
-              if (e.which === 13) {
-                doSearch();
-              }
-            });
-            $('.search-widget-icon').click(doSearch);
-          }
-          root.find('#lowerPriceRange').val(WebPlatform.currToStr(lowerPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find('#upperPriceRange').val(WebPlatform.currToStr(upperPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find("#priceSlider").slider({
-            values: [lowerPriceRange, upperPriceRange],
-            min: 0,
-            max: maxPrice,
-            step: 5,
-            range: true,
-            slide: function (event, ui) {
-              lowerPriceRange = ui.values[0];
-              upperPriceRange = ui.values[1];
-              root.find('#lowerPriceRange').val(WebPlatform.currToStr(ui.values[0], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              root.find('#upperPriceRange').val(WebPlatform.currToStr(ui.values[1], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              onPriceSliderChanged();
-            }
-          });
-          productFilterMobileButton.click(function () {
-            if (mobileStoreOverlay.hasClass('none')) {
-              mobileStoreOverlay.removeClass('none');
-              storeProductsFilterWrapper.show();
-              $('body').addClass('with-product-filter');
-            }
-            else {
-              mobileStoreOverlay.addClass('none');
-              storeProductsFilterWrapper.hide();
-              $('body').removeClass('with-product-filter');
-            }
-          });
-          root.find('.mobile-close-btn').click(function () {
-            productFilterMobileButton.click();
-          });
-        } catch (e) {
-          Log.error(e);
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="viewProduct"]', function () {
-            var id = $(this).closest('.product-item').data('id');
-            WebPlatform.Store.showProductInQuickView(id);
-            return false;
-          });
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="addToCart"]', function () {
-            var elem = $(this);
-            var product = elem.closest('.product-item');
-            var id = product.data('id');
-            var process = elem.data('process');
-            WebPlatform.Store.addProductToCart(id, process);
-            return false;
-          });
-        }
-      });
-    </script>
-  <meta property="og:image" content="https://content.app-sources.com/" />
-        <meta itemprop="image" content="https://content.app-sources.com/" />
-        <meta name="twitter:image" content="https://content.app-sources.com/"/>
+      <meta property="og:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg" />
+        <meta itemprop="image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg" />
+        <meta name="twitter:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg"/>
       <!--[if lt IE 9]>
       <script type="text/javascript" src="https://static.web-repository.com/scripts/common/html5shiv.min.js"></script>
       <![endif]-->
-      <style type="text/css" id="global-styles">
+      <script type="text/javascript">
+
+      var commentsCount = parseInt('0', 10);
+      var commentNeedsApprove = 'true' === 'true';
+      var postId = parseInt('19', 10);
+      var postShareSum = parseInt('27', 10);
+
+      WebPlatform.onReady(function () {
+        var share = WebPlatform.parseSimpleShare(postShareSum, window.location);
+        if ($.trim(share) !== '')
+          $('#shareLocation').append(share);
+        var commentTemplate =
+          '<div class="post-comment-wrapper" style="display: none"> \
+            <span class="post-user"></span> \
+            <span class="post-time">Publié le&nbsp;<span class="post-time-val"></span></span> \
+            <span class="post-comment"></span> \
+          </div>';
+        var commentForm = $('.blog-comment-form');
+        commentForm.find('a').click(function () {
+
+          var username = $.trim(commentForm.find("input[name='name']").val());
+          var email = $.trim(commentForm.find("input[name='email']").val());
+          var comment = $.trim(commentForm.find("textarea").val());
+          if (username === '') {
+            ClientTools.showMessageBox("Entrer votre nom d'utilisateur!", commentForm, 'before', true);
+            return false;
+          }
+          if (comment === '') {
+            ClientTools.showMessageBox("Entrer un commentaire!", commentForm, 'before', true);
+            return false;
+          }
+          WebPlatform.makeClientWebsiteRequest({
+            action: 'addBlogPostComment',
+            method: 'post',
+            data: {
+              postId: postId,
+              username: username,
+              email: email,
+              comment: comment
+            },
+            onOk: function (result) {
+              var newComment = result.data;
+              commentForm.slideUp('fast');
+              if (commentNeedsApprove)
+                ClientTools.showMessageBox("Merci! Votre commentaire est en attente de modération", commentForm, 'before');
+              else {
+                ++commentsCount;
+                $('.comments-list h3').text(commentsCount + (commentsCount === 1 ? ' Commentaire' : 'Commentaires'));
+                var comment = $(commentTemplate);
+                comment.find('.post-user').html(newComment.username);
+                comment.find('.post-time-val').html(newComment.time);
+                comment.find('.post-comment').html(newComment.comment);
+                $('.comments-list-content').prepend(comment);
+                comment.slideDown('fast');
+              }
+            },
+            onNotOk: function (data) {
+              ClientTools.showMessageBox(data.message, commentForm, 'before', true);
+            }
+          });
+        });
+      });</script>
+    <style type="text/css" id="global-styles">
   
 
   :root {
@@ -2529,17 +2347,21 @@ pintrk('page');
 
       <div class="content slide">
         <div class="content-wrapper">
-      <div class="content">
-        <div 
+      <div class="content " itemscope itemtype="http://schema.org/BlogPosting">
+
+        <meta itemprop="image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg" />
+
+        <div class="template-blog-header">
+            <div 
       
-      id="container-widget-15041"
+      id="container-widget-1624615221993"
       
       data-type="Container"
       class="grid-row
        stretched-mobile stretched-tablet"
       data-delay=""
-      style="padding-bottom:3.6784%;
-      padding-top: 0%; padding-left: 0;
+      style="padding-bottom:0%;
+      padding-top: 13.0662%; padding-left: 0;
       background-color: transparent;
         background-position: center center;
         background-repeat: no-repeat;
@@ -2561,197 +2383,377 @@ pintrk('page');
                  ">
 
               <div class="widget-row with-centered-content">
-                  <div class="widget style-1 catalogue-style-1
-          widgetResponsive col20" id="store-catalog-widget-1666071947663"
-         data-type="system/StoreCatalogWidget"
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626163656549"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h1 style="text-align: center;">Blog INITHY, <br>Toute votre Gestion Sportive, Nutritionnelle et Marketing.</h1></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+          widgetBlog widgetResponsive col20" id="blog-widget-14"
+         data-type="BlogWidget" 
          data-delay=""
          data-animation-duration=""
          data-animation-delay=""
          data-animation="lazyAnimation-"
-         style="margin-top: 6%; margin-left: 0;">
+         style="margin-top: 2.72727%; margin-left: 0%;">
+
+      <div class="col20 f-left blog-widget-content-wrapper">
+        <script type="text/javascript">
+                WebPlatform.onReady(function () {
+                  WebPlatform.Widgets.SimpleBlog({
+                    id: 14,
+                    blogUrl: 'blog',
+                    blogType: 'tags',
+                    blogCategory: '',
+                    itemsCount: 13
+                  });
+                });
+              </script>
+            <div class=" blog-items-wrapper 
+                 blog-tag-cloud transition-opacity"
+                 style="color: #898989"></div>
+          </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+          widgetResponsive textWidget col20" id="text-widget-9"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 5%; margin-left: 0%;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="font-size: 22px; font-family: &quot;Ropa Sans&quot;; color: rgb(0, 0, 0); font-weight: bold;"><span style="font-size: 22px;">Bienvenue sur le blog d'INITHY dédié aux </span><span class="color-secondary1" style="font-size: 22px;">professionnels du sport et de la nutrition.<br><br></span></span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+          widgetResponsive textWidget col20" id="text-widget-10"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: left; line-height: 1.8;"></p><div style="text-align: center; line-height: 1.2;"><span style="background-color: rgba(255, 255, 255, 0); font-size: 11px; color: rgb(127, 127, 127);"><span style="font-size: 16px;">Vous retrouverez <span style="font-weight: bold;" class="color-secondary1">tous les articles</span> sur les</span> </span><span style="background-color: rgba(255, 255, 255, 0); font-weight: bold; font-size: 16px;"><span style="color: rgb(127, 127, 127);">nouveautés, annonces,&nbsp; partenariats, presse, wébinaires, conseils marketing sportif, tunnel de vente, contenu gratuit à télécharger, modèles de productivités, vidéos, podcasts, etc...</span></span></div><div style="text-align: center; line-height: 1.2;"><br></div><span style="color: rgb(127, 127, 127);"><div style="text-align: center; line-height: 1.2;"><span style="background-color: rgba(255, 255, 255, 0); font-weight: bold;" class="color-secondary1">3 articles minimum par semaine !</span></div></span><br><br><p></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  </div>
+        <div class="grid-row">
+          <div class="grid-content blog-container post-with-sidebar">
+            <div class="grid-column col20">
+              <div class="widget-row">
+                <article class="blog-article col14">
+
+                  <div class="post-featured">
+                        <!-- image -->
+                            <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg" alt="INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion" />
+                          </div>
+                      <header id="shareLocation">
+                        <div class="post-header">
+                          <h1 class="post-title" itemprop="name headline">INITHY, Votre nouveau logiciel de coaching tout-en-un qui va révolutionner votre gestion</h1>
+                          <span class="post-meta">
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                              par<div style="display: inline;" itemprop="name">
+                                <a itemprop="url" href="/blog/author/INITHY">INITHY</a>
+                              </div>
+                            </span>
+                            <span>
+                              dans <a href="/blog/category/INITHY">INITHY</a>
+                               / <a href="/blog/category/Salles-de-sport">Salles de sport</a>
+                               / <a href="/blog/category/Coachs-Sportifs">Coachs Sportifs</a>
+                               / <a href="/blog/category/Clubs-Sportifs">Clubs Sportifs</a>
+                              </span>
+                            <span>Publié le&nbsp;<p itemprop="datePublished" datetime="2021-09-25T17:35:00Z">25/09/2021 17:35</p></span>
+                          </span>
+                        </div>
+                      </header>
+                    <div class="col20 f-left" itemprop="articleBody">
+                    <div 
+      
+      id="container-widget-1625558612649"
+      
+      data-type="Container"
+      class="grid-row
+       stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 3.50649%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626515482844"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h1 style="text-align: center;">INITHY, Votre Nouveau Partenaire De Gestion De Coaching !</h1><div>
+</div></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1625558613375"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 5.84416%; margin-left: 0px;">
+
+      <div class="image-box  scale-on-hover image-position-default" 
+           style="max-width: 770px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 77.79220779220779%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="/fonctionnalites" target="_self" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Desert_Dream_BEFORE1-min-2591876.jpg" class="flex-none" alt="" style=""  />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1625558613377"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="text-widget-content"><p style="line-height: 1.6;"></p><div style="font-size: 15px; text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0); font-weight: bold;"><br></span></div><p></p><p style="text-align: center; line-height: 1.6; font-size: 15px;"><br></p><p style="line-height: 1.6; font-size: 15px;"><span style="color: rgb(127, 127, 127);">
+</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1627587513182"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="text-widget-content"><p style="line-height: 1.6;"></p><div style="font-size: 15px; text-align: center; line-height: 1.6;"><br><h3><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><span class="color-secondary1">Avec <span style="text-decoration-line: underline;"><a href="/accueil">INITHY</a></span>, vous serez accompagné sur la tactique et la technique du logiciel de coaching, mais aussi sur le marketing sportif et la vente.<br><br></span></span></span></h3><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><br><br></span></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><br></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><br></span></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><br></span></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Faites progresser vos clients en proposant des <span style="font-weight: bold;" class="color-secondary1"><a href="/evenement-visio">cours</a></span> d'où que vous soyez</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Les clients recevront automatiquement vos <a href="/chat" style="font-weight: bold;"><span class="color-secondary1">notifications, vos messages via le tchat</span></a>,&nbsp; <br>vos directives, conseils, vidéos et programmes dans <a href="/personalisation" style="font-weight: bold;"><span class="color-secondary1">VOTRE application</span></a>.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Concentrez-vous davantage sur l’obtention des <a href="/suivi-clients" style="font-weight: bold;"><span class="color-secondary1">résultats visés par vos clients</span></a> tout en consacrant moins <br>de temps aux abonnements, au suivi et à l'administratif,&nbsp;</span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">toutes ces tâches étant tellement chronophages.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Obtenez <a href="/personalisation" style="font-weight: bold;"><span class="color-secondary1">votre propre application</span></a> de gestion de coaching.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Créez autant de profils et d'accès que vous le désirez, et au prix que vous voulez. <br>• Intégrez vos <a href="/sport" style="font-weight: bold;"><span class="color-secondary1">programmes sportifs</span></a> et <a href="/nutrition" style="font-weight: bold;"><span class="color-secondary1">nutritionnels</span></a> facilement</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Intégrez ou <a href="/sport" style="font-weight: bold;"><span class="color-secondary1">créez vos propres exercices</span></a>.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• inscrivez et gérez vos adhérents du bout du doigt.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• <a href="/chat" style="font-weight: bold;"><span class="color-secondary1">Communiquez</span></a> en temps réel avec n'importe lequel de vos clients.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Créez vos <a href="/planning" style="font-weight: bold;"><span class="color-secondary1">groupes, vos évènements, vos challenges</span></a>.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Reprogrammez les <a href="/evenement-visio" style="font-weight: bold;"><span class="color-secondary1">cours </span></a>par un simple glisser-déposer.&nbsp;</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Donnez aux clients la possibilité de programmer leur prochain cours <br>ou leur prochaine session au moment qui leur convient le mieux.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">• Votre banquier vous aimera encore plus quand il verra <a href="/tunnel-de-vente" style="font-weight: bold;"><span class="color-secondary1">votre chiffre d'affaire.</span></a></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">INITHY, ce n'est pas juste un nouveau produit. C'est une révolution ! <br>Si vous pensiez avoir déjà trouvé l'outil&nbsp; de coaching idéal, attendez de voir ce que INITHY va vous apporter. <br>Et soyons honnête...Vous ne vous doutez pas un instant de ce qui vous attend.&nbsp;</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Nous vous accompagnons en illimité sur la <span style="font-weight: bold;">tactique, la technique, le marketing et la vente</span>, mais nous vous apportons encore plus que notre logiciel de coaching, comme les <a href="/seminaire" style="font-weight: bold;"><span class="color-secondary1">bootcamps</span></a>, le INITHY tour by Enzo Foukra et même en vous apportant<a href="/blog/coachs-sportifs-la-strategie-en-ligne-redoutable-pour-propulser-votre-activite" style="font-weight: bold;"><span class="color-secondary1"> un tunnel de vente sur mesure clé en main.</span></a></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><br></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Pour ce mois de septembre, nous avons mis des optimisations</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">et nouvelles fonctionnalités sur notre créateur sportif que vous allez adorer en plus de toutes les fonctionnalités d'INITHY existantes.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">N'hésitez pas à prendre rendez-vous pour obtenir les offres du moment !</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">De belles surprises encore sont à venir.</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">Vous pouvez prendre rendez-vous pour obtenir les offres en fin de démo en <a href="https://inithyrdv15.youcanbook.me/" style="font-weight: bold;"><span class="color-secondary1">cliquant ici.</span></a></span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><br></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">
+</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">
+</span></div><div style="font-size: 15px; text-align: center; line-height: 1.6;"><span style="color: rgb(127, 127, 127);">
+</span></div><p style="line-height: 1.6; font-size: 15px;"><span style="color: rgb(127, 127, 127);">
+</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1626680700457"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 3.24675%; margin-left: 0%;">
       <div class="main-widget-content">
-        <style type="text/css">
-          </style>
+        <div style="text-align: center;">
+          <a href="https://inithyrdv15.youcanbook.me/" 
+             target="_self" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
 
-        <div class="style-1 product-list-wrapper center-align quick-view-1 products-per-row-2 side-filter">
-          <div class="lane-list-wrapper">
-            <div class="products-filter products-filter-style-2 inline-filter  inline-filter">
-              <section>
-                <ul class="filter-categories">
-                  <li class="active"><a href="/store" title="Tout" data-filter="none">Tout</a></li>
-                    <li class=""><a href="/store/category/yoga" title="Yoga">Yoga</a></li>
-                    </ul>
-              </section>
-            </div>
-
-            <div class="filter-lane">
-              <div class="flex aling-center flex-column space-between filter-inner-lane">
-                <div>
-                  <h1>Tous les produits</h1>
-                  <div class="products-showing">
-                    <span>
-                      Montrer les 3 résultats</span>
-                  </div>
+            <div class="col20 flex align-center button-icon-wrapper ">
+                <i class="fa fa-check"></i>
+              <span class="bold">
+                    PRENDRE RENDEZ-VOUS AVEC UN MEMBRE DE L'EQUIPE INITHY</span>
                 </div>
-                <div class="mobile-overlay none" id="mobileStoreOverlay"></div>
-                <div class="col20 f-left mobile-view">
-                  <a id="productFilterMobileButton" class="mobile-store-filter">Filtre produit</a>
-                  </div>
-                <div class="none">
-                  <select id="productsPerPageFilter">
-                    <option value="" disabled>Products per page</option>
-                    <option value="4" selected>8</option>
-                    <option value="6" >12</option>
-                    <option value="8" >16</option>
-                  </select>
-                </div>
-                <div class="flex align-center">
-                  <label>Trier par</label>
-                  <select id="sortByFilter">
-                    <option value="">Le plus récent d'abord</option>
-                    <option value="a-z">A - Z</option>
-                    <option value="z-a">Z - A</option>
-                    <option value="price">Le moins cher d'abord</option>
-                    <option value="price-desc">Le plus cher d'abord</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1626680700459"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 4.67532%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="/fonctionnalites" 
+             target="_self" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
 
-            <div class="products-list">
-              <div class="product-item  " data-id="16"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-experts">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thao-le-hoang-733047-unsplash-7115107-1880186.jpg" alt="Yoga for Experts"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-experts" class="highlightColor">
-                        Yoga for Experts</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-experts">
-                        $100.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="15"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-advanced">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/bruce-mars-558730-unsplash-7115090-1880186.jpg" alt="Yoga for Advanced"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-advanced" class="highlightColor">
-                        Yoga for Advanced</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-advanced">
-                        $80.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="14"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-newbies">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thought-catalog-685332-unsplash-7115108-1880189.jpg" alt="Yoga for Newbies"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-newbies" class="highlightColor">
-                        Yoga for Newbies</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-newbies">
-                        $50.00</a>
-                    </span>
-                    </div>
-                  </div>
-              </div>
-            <div class="filter-lane pagination-lane">
-              </div>
-          </div>
-
-          <div class="products-filter" id="storeProductsFilterWrapper">
-              <a class="mobile-close-btn"><img src="https://static.web-repository.com/images/feed-close.png"></a>
-              <section>
-                <h3>Catégorie</h3>
-                <ul class="filter-categories" id="productsFilter">
-                  <li class="active"><a href="/store/">Tous les produits</a></li>
-                  <li class="">
-                      <a data-url="yoga" data-id="8" href="/store/category/yoga" title="Yoga">Yoga</a>
-                      </li>
-                  </ul>
-              </section>
-              <section class="price-section">
-                <h3>Prix</h3>
-                  <div id="priceSlider"></div>
-                  <input readonly value="" id="lowerPriceRange">
-                  <input readonly value="" id="upperPriceRange">
-                </section>
-              </div>
-          </div>
+            <span class="bold">
+                    VOIR TOUTES LES FONCTIONNALITES DU LOGICIEL DE COACHING INITHY</span>
+                </a>
+        </div>
       </div>
     </div>
   </div>
               </div></div>
       </div>
   </div>
+                    <footer>
+                      <div class="blog-tag-cloud">
+                      <a href="/blog/tag/INITHY" class="highlightBg">INITHY</a>
+                      <a href="/blog/tag/Salles-de-sport" class="highlightBg">Salles de sport</a>
+                      <a href="/blog/tag/Coachs-Sportifs" class="highlightBg">Coachs Sportifs</a>
+                      <a href="/blog/tag/Clubs-Sportifs" class="highlightBg">Clubs Sportifs</a>
+                      </div>
+                    <div class="social-buttons"></div>
+                  </footer>
+                  <a href="javascript: window.history.go(-1);" title="Retour" class="blog-back-btn">
+                    <i class="fa fa-angle-left fa-2x"></i>
+                  </a>
+                </article>
+                <aside class="post-sidebar">
+                    <div 
+      
+      id="container-widget-1624615224434"
+      
+      data-type="Container"
+      class="grid-row
+       stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+          widgetBlog widgetResponsive col20" id="blog-widget-1473599110368"
+         data-type="BlogWidget" 
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0%; margin-left: 0%;">
+
+      <div class="col20 f-left blog-widget-content-wrapper">
+        <script type="text/javascript">
+                WebPlatform.onReady(function () {
+                  WebPlatform.Widgets.SimpleBlog({
+                    id: 1473599110368,
+                    blogUrl: 'blog',
+                    blogType: 'posts',
+                    blogCategory: '',
+                    itemsCount: 5
+                  });
+                });
+              </script>
+            <div class=" blog-items-wrapper 
+                  transition-opacity"
+                 style="color: #3e3e3e"></div>
+          </div>
+    </div>
+  </div>
+              </div></div>
       </div>
+  <div 
+      
+      id="container-widget-7"
+      
+      data-type="Container"
+      class="grid-row
+       stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content  grid-row-empty">
+          <div class="grid-column  grid-column-no-widgets   " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  </div>
+              </div></div>
+      </div>
+  </aside>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <footer class="page-footer ">
             <div 
       
@@ -4332,9 +4334,7 @@ pintrk('page');
       </script>
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=912" data-cookieconsent="ignore"></script>
-        <script type="text/javascript" src="https://static.web-repository.com/scripts/jquery-ui.min.js?v=912" data-cookieconsent="ignore"></script>
-        <link rel="preload stylesheet" as="style" href="https://static.web-repository.com/styles/jquery-ui.min.css?v=912" />
-      <script>
+        <script>
 jQuery(document).ready(function($){
     $("a.not-visible-badge").hide();
 });

@@ -12,22 +12,26 @@
 
       <link rel="icon" href="data:," />
 
-      <title>Store</title>
+      <title>Inithy x MP-T | Une innovation complète pour Les Entrepreneurs du Sport et de la Nutrition</title>
 
-      <link rel="canonical" href="https://inithy.build.superagency.io/store" />
-      <meta property="og:url" content="https://inithy.build.superagency.io/store"/>
-      <meta itemprop="url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="twitter:url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="description" content="" />
+      <link rel="canonical" href="https://inithy.build.superagency.io/mp-trainer" />
+      <meta property="og:url" content="https://inithy.build.superagency.io/mp-trainer"/>
+      <meta itemprop="url" content="https://inithy.build.superagency.io/mp-trainer"/>
+      <meta name="twitter:url" content="https://inithy.build.superagency.io/mp-trainer"/>
+      <meta name="description" content="Cette innovation va permettre à tous les entrepreneurs du sport et de la nutrition, de faire émerger grâce à ce concept, leur propre projet.
+Découvrez sans plus attendre en cliquant ici" />
       <meta property="og:site_name" content="inithy" />
-      <meta property="og:title" content="Store"/>
+      <meta property="og:title" content="Inithy x MP-T | Une innovation complète pour Les Entrepreneurs du Sport et de la Nutrition"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:description" content=""/>
-      <meta itemprop="name" content="Store"/>
-      <meta itemprop="description" content=""/>
-      <meta name="twitter:title" content="Store"/>
+      <meta property="og:description" content="Cette innovation va permettre à tous les entrepreneurs du sport et de la nutrition, de faire émerger grâce à ce concept, leur propre projet.
+Découvrez sans plus attendre en cliquant ici"/>
+      <meta itemprop="name" content="Inithy x MP-T | Une innovation complète pour Les Entrepreneurs du Sport et de la Nutrition"/>
+      <meta itemprop="description" content="Cette innovation va permettre à tous les entrepreneurs du sport et de la nutrition, de faire émerger grâce à ce concept, leur propre projet.
+Découvrez sans plus attendre en cliquant ici"/>
+      <meta name="twitter:title" content="Inithy x MP-T | Une innovation complète pour Les Entrepreneurs du Sport et de la Nutrition"/>
       <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:description" content=""/>
+      <meta name="twitter:description" content="Cette innovation va permettre à tous les entrepreneurs du sport et de la nutrition, de faire émerger grâce à ce concept, leur propre projet.
+Découvrez sans plus attendre en cliquant ici"/>
       <script type="text/javascript">
         var WebPlatform = window.WebPlatform || {};
 
@@ -70,253 +74,9 @@
       <link rel="preload stylesheet" as="style" media="(max-width: 480px)"
             href="https://static.web-repository.com/t/theme25/css/trunk-480.min.css?v=912" id="style-480" class="stylesheet"/>
 
-      <script type="text/javascript">
-      WebPlatform.onReady(function () {
-        var root = $('#store-catalog-widget-1666071947663');
-        var hasQuickView = false;
-        var showBuyButtonInLists = false;
-        var sort = '';
-        var searchFilter = '';
-        var filterUrlPart = '';
-        var variationsFilter = null;
-        var sortByFilter = root.find('#sortByFilter');
-        var productsPerPageFilter = root.find('#productsPerPageFilter');
-        var category = '';
-        var lowerPriceRange = 0;
-        var upperPriceRange = Math.abs(100);
-        var maxPrice = Math.abs(100);
-        var subcategories = '';
-        var mobileStoreOverlay = root.find('#mobileStoreOverlay');
-        var storeProductsFilterWrapper = root.find('#storeProductsFilterWrapper');
-        var productFilterMobileButton = root.find('#productFilterMobileButton');
-        var variations = storeProductsFilterWrapper.find('.filter-by-variation');
-        var variationsFilterUrl = '';
-
-        if (variations.length > 0) {
-          variations.on('click', '.variation-filter-link', function (event) {
-            var li = $(event.target).closest('li').toggleClass('active');
-            var url = '';
-            variations.each(function (idx, variation) {
-              variation = $(variation);
-              var checked = variation.find('li.active');
-              if (checked.length > 0) {
-                var filterValues = '';
-                checked.each(function (idx, elem) {
-                  var filter = ($(elem).data('filter') || '') + '';
-                  if (filter) {
-                    if (filterValues !== '')
-                      filterValues += ',';
-                    filterValues += encodeURIComponent(filter.replace('&', '^'));
-                  }
-                });
-                if (filterValues !== '') {
-                  if (url !== '')
-                    url += '&';
-                  url += encodeURIComponent(variation.find('h3').text().replace('&', '^'));
-                  url += '=' + filterValues;
-                }
-              }
-            });
-            variationsFilterUrl = url;
-            refreshFiltering();
-          });
-        }
-
-        if (variationsFilter !== null) {
-          variations.each(function (idx, elem) {
-            var root = $(elem);
-            var heading = root.find('h3').text().toLowerCase();
-            var filtered = [];
-            for (var idx = 0; idx < variationsFilter.length; ++idx) {
-              if (variationsFilter[idx].name.toLowerCase() === heading) {
-                filtered = variationsFilter[idx].values;
-                break;
-              }
-            }
-            if (filtered.length > 0) {
-              var items = root.find('li');
-              items.each(function (idx, li) {
-                var li = $(li);
-                var filter = ((li.data('filter') || '') + '').toLowerCase();
-                for (var idx = 0; idx < filtered.length; ++idx) {
-                  if (filtered[idx].first.toLowerCase() === filter) {
-                    li.addClass('active');
-                    break;
-                  }
-                }
-              });
-            }
-          });
-        }
-
-        var refreshFiltering = function () {
-          var newSort = sortByFilter.val();
-          var newRows = +productsPerPageFilter.val();
-          var newUrl = WebPlatform.Store.baseUrl;
-          if (category !== '')
-            newUrl += '/category/' + category;
-          if (subcategories !== '')
-            newUrl += '/sub/' + subcategories;
-          if (variationsFilterUrl !== '')
-            newUrl += '/var/' + variationsFilterUrl;
-          if (newRows !== 4)
-            newUrl += '/rows/' + newRows;
-          if (newSort)
-            newUrl += '/sort/' + newSort;
-          if (searchFilter)
-            newUrl += '/search/' + encodeURI(searchFilter);
-          if (lowerPriceRange > 0 || upperPriceRange !== maxPrice)
-            newUrl += '/range/' + lowerPriceRange + ',' + upperPriceRange;
-          ClientTools.showLoader();
-          window.location.href = newUrl;
-        };
-        sortByFilter.val(sort).add(productsPerPageFilter).change(refreshFiltering);
-
-        try {
-          root.find('#productsFilter').on('click', '.has-subcategories > a', function (event) {
-            var elem = $(this);
-            var clickedOnArrow = $(event.target).is('.arrow');
-            var li = elem.parent();
-            if (!clickedOnArrow && li.hasClass('open') && li.children('ul').children('.active').length > 0)
-              return;
-            if (li.hasClass('open')) {
-              li.removeClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (li.children('ul').length > 0) {
-              li.addClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (clickedOnArrow) {
-              li.addClass('open');
-              WebPlatform.makeClientWebsiteRequest({
-                action: 'getStoreSubcategories',
-                data: {
-                  parent: elem.data('id')
-                },
-                onOk: function (result) {
-                  var categoriesPath = [elem.data('url')];
-                  var rootElem = elem.closest('ul');
-                  while (true) {
-                    if (rootElem.hasClass('filter-categories'))
-                      break;
-                    categoriesPath.push(rootElem.parent().children('a').data('url'));
-                    rootElem = rootElem.parent().closest('ul');
-                  }
-
-                  var baseUrl = WebPlatform.Store.baseUrl + '/category/';
-                  for (var idx = categoriesPath.length - 1; idx >= 0; --idx) {
-                    if (idx === categoriesPath.length - 1)
-                      baseUrl += categoriesPath[idx] + '/sub/';
-                    else
-                      baseUrl += categoriesPath[idx] + ',';
-                  }
-
-                  var categories = result.data;
-                  var markup = '<ul>';
-                  for (var idx = 0; idx < categories.length; ++idx) {
-                    var category = categories[idx];
-                    var hasSubcategories = category.left + 1 < category.right;
-                    markup += '<li class="' + (hasSubcategories ? 'has-subcategories' : '') + '">';
-                    markup += '<a data-url="' + category.url + '" data-id="' + category.id + '" href="' + baseUrl + category.url + filterUrlPart + '">' + category.name;
-                    if (hasSubcategories) {
-                      markup += '<div class="arrow"></div>';
-                    }
-                    markup += '</a>';
-                    markup += '</li>';
-                  }
-                  markup += '</ul>';
-                  elem.after(markup);
-                }
-              });
-              return WebPlatform.preventDefault(event);
-            }
-          });
-          var onPriceSliderChanged = $.debounce(800, function () {
-            var newUrl = WebPlatform.clearUrlParameter(window.location.href, 'range', WebPlatform.URL_PARAM_ANY);
-            newUrl = WebPlatform.clearUrlParameter(newUrl, 'page', WebPlatform.URL_PARAM_ANY);
-            if (!newUrl.endsWith('/'))
-              newUrl += '/';
-            newUrl += 'range/' + lowerPriceRange + ',' + upperPriceRange;
-            ClientTools.showLoader();
-            window.location.href = newUrl;
-          });
-          var searchFilterField = $('#searchFilter');
-          if (searchFilterField.length) {
-            var doSearch = function () {
-              var searchVal = searchFilterField.val().trim();
-              if (searchVal !== searchFilter) {
-                searchFilter = searchVal;
-                refreshFiltering();
-              }
-            };
-            searchFilterField.val(searchFilter).keypress(function (e) {
-              if (e.which === 13) {
-                doSearch();
-              }
-            });
-            $('.search-widget-icon').click(doSearch);
-          }
-          root.find('#lowerPriceRange').val(WebPlatform.currToStr(lowerPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find('#upperPriceRange').val(WebPlatform.currToStr(upperPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find("#priceSlider").slider({
-            values: [lowerPriceRange, upperPriceRange],
-            min: 0,
-            max: maxPrice,
-            step: 5,
-            range: true,
-            slide: function (event, ui) {
-              lowerPriceRange = ui.values[0];
-              upperPriceRange = ui.values[1];
-              root.find('#lowerPriceRange').val(WebPlatform.currToStr(ui.values[0], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              root.find('#upperPriceRange').val(WebPlatform.currToStr(ui.values[1], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              onPriceSliderChanged();
-            }
-          });
-          productFilterMobileButton.click(function () {
-            if (mobileStoreOverlay.hasClass('none')) {
-              mobileStoreOverlay.removeClass('none');
-              storeProductsFilterWrapper.show();
-              $('body').addClass('with-product-filter');
-            }
-            else {
-              mobileStoreOverlay.addClass('none');
-              storeProductsFilterWrapper.hide();
-              $('body').removeClass('with-product-filter');
-            }
-          });
-          root.find('.mobile-close-btn').click(function () {
-            productFilterMobileButton.click();
-          });
-        } catch (e) {
-          Log.error(e);
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="viewProduct"]', function () {
-            var id = $(this).closest('.product-item').data('id');
-            WebPlatform.Store.showProductInQuickView(id);
-            return false;
-          });
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="addToCart"]', function () {
-            var elem = $(this);
-            var product = elem.closest('.product-item');
-            var id = product.data('id');
-            var process = elem.data('process');
-            WebPlatform.Store.addProductToCart(id, process);
-            return false;
-          });
-        }
-      });
-    </script>
-  <meta property="og:image" content="https://content.app-sources.com/" />
-        <meta itemprop="image" content="https://content.app-sources.com/" />
-        <meta name="twitter:image" content="https://content.app-sources.com/"/>
+      <meta property="og:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/INITHY_x_MP-T_Screenshot_1-3148512.png" />
+        <meta itemprop="image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/INITHY_x_MP-T_Screenshot_1-3148512.png" />
+        <meta name="twitter:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/INITHY_x_MP-T_Screenshot_1-3148512.png"/>
       <!--[if lt IE 9]>
       <script type="text/javascript" src="https://static.web-repository.com/scripts/common/html5shiv.min.js"></script>
       <![endif]-->
@@ -2532,13 +2292,260 @@ pintrk('page');
       <div class="content">
         <div 
       
-      id="container-widget-15041"
+      id="container-widget-1624615232887"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 3%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      
+      background-image: url('https://content.app-sources.com/s/20124825426525111/uploads/Images/rPresentation-Generale-noir-2-3955624.png');">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078039"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 18.71345029239766% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1624628078411"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 0.5;"><span style="background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); font-family: &quot;Metropolis BOLD&quot;; font-size: 15px;">LE MEILLEUR OUTIL DE COACHING POUR VOUS ET VOS CLIENTS</span><br></h2></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078410"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="color: rgb(255, 255, 255); font-size: 18px;"><span style="font-size: 12px;">Pour les&nbsp;</span><span style="font-weight: bold; font-size: 12px;" class="color-secondary1">Coachs Sportifs, Les Entraîneurs </span></span></p><p style="text-align: center; line-height: 1.2;"><span style="color: rgb(255, 255, 255); font-size: 18px;"><span style="font-weight: bold; font-size: 12px;" class="color-secondary1">et les Salles de sport</span></span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078409"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="color: rgb(255, 255, 255); font-size: 10px;">Chez INITHY, nous savons que la réussite de vos clients,
+</span></p><p style="text-align: center; line-height: 1.2;"><span style="color: rgb(255, 255, 255); font-size: 10px;">c’est aussi votre plus grande réussite</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078407"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 93.56725146198829% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1623917760002"
       
       data-type="Container"
       class="grid-row
        stretched-mobile stretched-tablet"
       data-delay=""
-      style="padding-bottom:3.6784%;
+      style="padding-bottom:0%;
+      padding-top: 7.88229%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0%;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1641136408129"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 29.239766081871345% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1641136414522"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 1398px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 11.444921316165951%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Logo-inithy_Inithy__MPT-1137885.jpg">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Logo-inithy_Inithy__MPT-1137885.jpg" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1641136414972"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1641136414523"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInDown"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="font-size: 20px; font-weight: bold;" class="color-secondary1"><span style="color: rgb(127, 127, 127);">DÉCOUVREZ</span> UNE EXPÉRIENCE ENCORE JAMAIS VUE POUR LES PROFESSIONNELS DU SPORT, DE LA SANTE ET DE LA NUTRITION</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive videoWidget col12" id="video-widget-1648558372337" 
+         data-type="VideoWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 2.62707%; margin-left: 0px;">
+
+      <div class="widget-preserving-ratio-outer video-position-left" style="padding-bottom: 56.25744934445769%">
+        <div class="widget-preserving-ratio-inner">
+          <div class="full-size video-thumb-bg" style="box-shadow: nullpx nullpx nullpx nullpx  none;"><iframe class="full-size-abs" src="https://www.youtube.com/embed/2dgOLe1oCbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!-- */ <!-- --></div>
+            </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1641136414071"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0.913764%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="font-size: 20px; color: rgb(0, 0, 0); font-weight: bold;">DONNEZ UNE AUTRE DIMENSION À VOTRE BUSINESS<br><span style="text-decoration-line: underline;"><br><span class="color-secondary1" style="">Découvrez Notre OFFRE DE LANCEMENT</span></span><br><span class="color-secondary1" style="">RENDEZ VOS PRESTATIONS ELIGIBLES A DES FINANCEMENTS POUR VOS CLIENTS</span></span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1623917761932"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 1.02798%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1wn76LZyGTwOJwFgudzQmyQ48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
+
+            <div class="flex flex-col btn-text-wrapper ta-center">
+                    <span class="flex-1 bold">
+                      DECOUVRIR LES AVANTAGES</span>
+                    <span class="flex-1 "
+                          style="font-size: 14px;
+                          14px;color:rgba(255, 255, 255, 0.75);font-family:'Arial';">
+                      En 2 minutes chrono !</span>
+                  </div>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078403"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:10.5263%;
       padding-top: 0%; padding-left: 0;
       background-color: transparent;
         background-position: center center;
@@ -2561,190 +2568,1268 @@ pintrk('page');
                  ">
 
               <div class="widget-row with-centered-content">
-                  <div class="widget style-1 catalogue-style-1
-          widgetResponsive col20" id="store-catalog-widget-1666071947663"
-         data-type="system/StoreCatalogWidget"
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1624628078402"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1hwTjxkQzSRuVqRVPX-Gcbg48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 18px 36px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    ACCEDEZ A VOTRE DEMO GRATUITEMENT</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078401"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 1.81818%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1.2;"><span style="font-weight: 700; color: rgb(127, 127, 127); font-size: 12px;">Démo et conseils offerts. </span></p><p style="text-align: center; line-height: 1.2;"><span style="font-weight: 700; color: rgb(127, 127, 127); font-size: 12px;">Nous ne prenons pas de commissions sur vos clients.</span></p><p style="text-align: center; line-height: 1.2;"><span style="font-weight: 700; color: rgb(127, 127, 127); font-size: 12px;">Accompagnement clients INITHY ILLIMITES.</span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078058"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:8.68421%;
+      padding-top: 0%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628078057"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           >
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 38.59649122807017%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/goodScreenshot_2-4705332.png">
+            <a class="lazyImage flex flex-col
+                image-bigger image-cover-height image-cover"
+               
+                 style=""
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/goodScreenshot_2-4705332.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1623917760001"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1641136408128"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 21.929824561403507% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1623917761919"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 1519px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 22.251481237656353%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1641136407214"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 14.035087719298245% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1641136414070"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 1519px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 36.86635944700461%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Presentation-Generale_EMS-GILETVR1-1137212.jpg">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Presentation-Generale_EMS-GILETVR1-1137212.jpg" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1641136407213"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 10.818713450292398% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  widgetResponsive imageWidget col20" id="image-widget-1641136407211"
+         data-type="ImageWidget"
          data-delay=""
          data-animation-duration=""
          data-animation-delay=""
          data-animation="lazyAnimation-"
-         style="margin-top: 6%; margin-left: 0;">
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 58.47953216374269%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1641136413171"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 1519px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 33.04805793285056%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/screen_depart_bulles_Screenshot_1-1138507.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/screen_depart_bulles_Screenshot_1-1138507.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1590157022372"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden with-delay stretched-mobile stretched-tablet"
+      data-delay="1"
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: rgba(255, 255, 255, 1);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078400"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 9.941520467836257% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1623398118512"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 2.54545%; margin-left: 0%;">
+      <div class="text-widget-content"><h5 style="text-align: center; line-height: 1;"><span style="color: rgb(0, 0, 0); font-family: &quot;Metropolis BOLD&quot;; font-size: 36px; font-weight: 700;">DÉCOUVREZ COMMENT OBTENIR DES REVENUS PASSIFS<br></span></h5></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+          widgetResponsive widgetCode col20" id="code-widget-1623003984629"
+         data-type="CodeWidget"
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="code-widget-content col20">
+        <h1>
+	<p style=" text-align:center; color:#4EB3EA; font-size:36px; font-family:Metropolis BOLD;" class="typewrite" data-period="80" data-type='[ "Gérez tous vos clients dans un seul endroit", "Augmentez  le nombre de leads", "Augmentez vos taux de conversions", "Créer des programmes sportifs & nutritionnels" ]'>
+    	<span class="wrap"></span>
+  	</p>
+</h1><!-- */ <!-- -->
+              </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1641136412266"
+      
+      data-type="Container"
+      class="grid-row
+       bg-color-secondary4 stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:3.52076%;
+      padding-top: 3.83605%; padding-left: 0;
+      
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  widgetResponsive imageWidget col20" id="image-widget-1641136406754"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 58.47953216374269%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Partenaires-1137739.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  widgetResponsive imageWidget col20" id="image-widget-1641136406297"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           >
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 58.47953216374269%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Presentation-Generale_EMS-GILETVR1-1137212.jpg">
+            <a class="lazyImage flex flex-col
+                image-bigger image-cover-height image-cover"
+               
+                 style=""
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/Presentation-Generale_EMS-GILETVR1-1137212.jpg" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  widgetResponsive imageWidget col20" id="image-widget-1641136405383"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration=""
+         data-animation-delay=""
+         data-animation="lazyAnimation-"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           >
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 58.47953216374269%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/synergie_totale_EMS-Training-1152618.jpg">
+            <a class="lazyImage flex flex-col
+                image-bigger image-cover-width image-cover"
+               
+                 style=""
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/synergie_totale_EMS-Training-1152618.jpg" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1641136407212"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 2.54545%; margin-left: 0%;">
+      <div class="text-widget-content"><h5 style="text-align: center; line-height: 1;"><span style="color: rgb(0, 0, 0); font-family: &quot;Metropolis BOLD&quot;; font-size: 36px; font-weight: 700;"><span style="font-size: 18px;">DÉCOUVREZ COMMENT OBTENIR DES REVENUS PASSIFS</span><br></span></h5></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col11" id="image-widget-1641136412265"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 769px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 72.04161248374513%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/rich_Screenshot_1-1139586.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/rich_Screenshot_1-1139586.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col8" id="text-widget-1641136412264"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="text-widget-content"><div style="text-align: center; line-height: 1.4;"><span class="color-secondary1" style="font-size: 18px; font-weight: bold;">DES AVANTAGES HORS DU COMMUN</span><span style="font-size: 18px;">
+</span><br><br></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;">Et si vous pouviez considérer tous les autres <span style="font-weight: bold;">coachs sportifs, nutritionnistes et salles de sports</span> comme des membres de votre équipe <br>et non plus comme des concurrents ?
+</span><br><br></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"><span style="font-weight: bold;">Ouvrez votre réseau, devenez un ambassadeur du concept et débloquez des paliers de rémunération sans limites.</span>&nbsp;</span><span style="background-color: rgba(255, 255, 255, 0);"><span style="font-size: 18px;">en permettant à d'autres professionnels de se développer&nbsp;</span><span style="font-size: 18px;">et de développer leur réseau de clientèle.</span><br><br></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"><span style="font-weight: bold;">Profitez d'une plateforme associée à INITHY x MP TRAINER qui génère des milliards de dollars dans près de 50 pays</span> avec des dizaines d'années d'expériences <br>dans le domaine de l'affiliation&nbsp;</span><span style="font-size: 18px;">avec plus de <span style="font-weight: bold;">500 000 entrepreneurs affiliés.
+</span></span><br><br></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"><span style="font-weight: bold;">Aucun travail à fournir de votre part</span>, partagez simplement <span style="font-weight: bold;">votre lien unique</span> à votre réseau&nbsp;</span><span style="font-size: 18px;">et nous les accompagnerons comme nous allons vous accompagner.
+</span><br><br></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;">Développez un réseau de coachs, <span style="font-weight: bold;">ne soyez plus limités seulement par votre temps</span> et cumulez des points pour <span style="font-weight: bold;">accéder à des récompenses hors normes : 
+</span></span><br><br></div><div style="text-align: center; line-height: 1.4;"><span class="color-secondary1" style="font-size: 18px; font-weight: bold;">Formations - coachings / business - Soirées VIP - Excursions exotiques - Yacht Party - Revenus passifs - Lifestyle Business trip...</span></div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1641136411806"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 3.94061%; margin-left: 0%;">
       <div class="main-widget-content">
-        <style type="text/css">
-          </style>
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1wn76LZyGTwOJwFgudzQmyQ48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
 
-        <div class="style-1 product-list-wrapper center-align quick-view-1 products-per-row-2 side-filter">
-          <div class="lane-list-wrapper">
-            <div class="products-filter products-filter-style-2 inline-filter  inline-filter">
-              <section>
-                <ul class="filter-categories">
-                  <li class="active"><a href="/store" title="Tout" data-filter="none">Tout</a></li>
-                    <li class=""><a href="/store/category/yoga" title="Yoga">Yoga</a></li>
-                    </ul>
-              </section>
+            <div class="flex flex-col btn-text-wrapper ta-center">
+                    <span class="flex-1 bold">
+                      DECOUVRIR LES AVANTAGES</span>
+                    <span class="flex-1 "
+                          style="font-size: 14px;
+                          14px;color:rgba(255, 255, 255, 0.75);font-family:'Arial';">
+                      En 2 minutes chrono !</span>
+                  </div>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1641136411811"
+      
+      data-type="Container"
+      class="grid-row
+       bg-color-secondary4 stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col8" id="text-widget-1641136411809"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="text-widget-content"><p><br></p><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px; background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;" class="color-secondary1"><br><br>L'EMS SANS LIMITES POUR VOS CLIENTS</span><br></span><br></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;">Le nouveau concept <span style="font-weight: bold;">MPT HOME</span> est la consécration de plus de 8 ans d'expertise. Faites oublier toutes les contraintes liées au sport à vos clients ! Permettez leur de s'entraîner de chez eux ou en salle en étant accompagnés <br>par leur coach et nutritionniste.<br><br></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;">Consacrez leur <span style="font-weight: bold;">seulement 2 séances de 20min par semaine</span> pour leur permettre d'obtenir des résultats visibles et durables.<br><br></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px; font-weight: bold;">Et permettre à vos clients de s'entrainer en parfaite autonomie grâce au matériel EMS MPT Home et à votre&nbsp;</span><span style="font-size: 18px; background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">propre application fournie.</span><br><span style="font-weight: bold;"><br></span></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px; font-weight: bold;">Gagnez du temps et développez un réseau de&nbsp;</span><span style="font-size: 18px; background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">clientèle sans limites.</span><br><br></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;">Prenez les devants en <span style="font-weight: bold;">ajoutant l'EMS à vos services de coaching</span> avec un prix <br>que vous ne trouverez nul part ailleurs (VRAIMENT).<br><br></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"><span style="font-weight: bold;" class="color-secondary1">N'ayez plus aucune limite</span><span class="color-secondary1">, l'électrostimulation </span></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;" class="color-secondary1">devient accessible à tous.</span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"></span></div><div style="text-align: center; line-height: 1.4;"><span style="font-size: 18px;"></span></div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div><div style="text-align: center; line-height: 1.4;">
+</div></div>
+    </div>
+  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col10" id="image-widget-1641136411810"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 10%;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 699px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 74.2489270386266%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/WhatsApp_Image_2021-12-19_at_20.53.13-1140139.jpeg">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/WhatsApp_Image_2021-12-19_at_20.53.13-1140139.jpeg" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1641136411348"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0.913764%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1wn76LZyGTwOJwFgudzQmyQ48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
 
-            <div class="filter-lane">
-              <div class="flex aling-center flex-column space-between filter-inner-lane">
-                <div>
-                  <h1>Tous les produits</h1>
-                  <div class="products-showing">
-                    <span>
-                      Montrer les 3 résultats</span>
+            <div class="flex flex-col btn-text-wrapper ta-center">
+                    <span class="flex-1 bold">
+                      DECOUVRIR LES AVANTAGES</span>
+                    <span class="flex-1 "
+                          style="font-size: 14px;
+                          14px;color:rgba(255, 255, 255, 0.75);font-family:'Arial';">
+                      En 2 minutes chrono !</span>
                   </div>
-                </div>
-                <div class="mobile-overlay none" id="mobileStoreOverlay"></div>
-                <div class="col20 f-left mobile-view">
-                  <a id="productFilterMobileButton" class="mobile-store-filter">Filtre produit</a>
-                  </div>
-                <div class="none">
-                  <select id="productsPerPageFilter">
-                    <option value="" disabled>Products per page</option>
-                    <option value="4" selected>8</option>
-                    <option value="6" >12</option>
-                    <option value="8" >16</option>
-                  </select>
-                </div>
-                <div class="flex align-center">
-                  <label>Trier par</label>
-                  <select id="sortByFilter">
-                    <option value="">Le plus récent d'abord</option>
-                    <option value="a-z">A - Z</option>
-                    <option value="z-a">Z - A</option>
-                    <option value="price">Le moins cher d'abord</option>
-                    <option value="price-desc">Le plus cher d'abord</option>
-                  </select>
-                </div>
-              </div>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078399"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only with-delay stretched-mobile stretched-tablet"
+      data-delay="1"
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: rgba(255, 255, 255, 1);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078398"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 9.941520467836257% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1624628078397"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 2.54545%; margin-left: 0%;">
+      <div class="text-widget-content"><h5 style="text-align: center; line-height: 1;"><span style="font-size: 18px; color: rgb(0, 0, 0); font-weight: bold; font-family: &quot;Metropolis BOLD&quot;;" class="color-secondary1">Présentation des fonctionnalités d'INITHY</span></h5></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1641136409061"
+      
+      data-type="Container"
+      class="grid-row
+       bg-color-secondary4 stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:5.93799%;
+      padding-top: 0%; padding-left: 0;
+      
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1641136408146"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 2.54545%; margin-left: 0%;">
+      <div class="text-widget-content"><h5 style="text-align: center; line-height: 1;"><span style="color: rgb(0, 0, 0); font-family: &quot;Metropolis BOLD&quot;; font-size: 36px; font-weight: 700;">VOUS OBTENEZ L'EMS MPT ET TOUS LES SERVICES CI-DESSOUS :</span></h5></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1658682275504"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 1.71674%; margin-left: 0px;">
+
+      <div class="image-box  scale-on-hover image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 33.91812865497076%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/54c9f24d-3ff2-4988-a71e-943aa3cf5f58-4173122.jpg">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="/dreamlife" target="_self" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/54c9f24d-3ff2-4988-a71e-943aa3cf5f58-4173122.jpg" class="flex-none" alt="INITHY x DreamTeam le nouveau concept qui va permettre aux coachs sportifs d'obtenir une équipe qui s'occupera de toute la prospection jusqu'au closing " style=""  loading="lazy" />
+            </a>
             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1658682275503"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 1.50215%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="/dreamlife" 
+             target="_self" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(0, 0, 0, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
 
-            <div class="products-list">
-              <div class="product-item  " data-id="16"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+            <span class="bold">
+                    EN SAVOIR PLUS SUR LE PROGRAMME DREAM TEAM ASSOCIE A MPT </span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078395"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden mobile-only with-delay stretched-mobile stretched-tablet"
+      data-delay="1"
+      style="padding-bottom:0%;
+      padding-top: 0%; padding-left: 0;
+      background-color: rgba(255, 255, 255, 1);
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column  justify-flex-start  " 
+                 style="width: 50%;
+                 padding-left:0px;padding-right:0px;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-                      <a href="/store/yoga-for-experts">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thao-le-hoang-733047-unsplash-7115107-1880186.jpg" alt="Yoga for Experts"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-experts" class="highlightColor">
-                        Yoga for Experts</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-experts">
-                        $100.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="15"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628078390"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0px;">
 
-                      <a href="/store/yoga-for-advanced">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/bruce-mars-558730-unsplash-7115090-1880186.jpg" alt="Yoga for Advanced"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-advanced" class="highlightColor">
-                        Yoga for Advanced</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-advanced">
-                        $80.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="14"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+      <div class="image-box  image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 33.33333333333333%" >
 
-                      <a href="/store/yoga-for-newbies">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thought-catalog-685332-unsplash-7115108-1880189.jpg" alt="Yoga for Newbies"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-newbies" class="highlightColor">
-                        Yoga for Newbies</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-newbies">
-                        $50.00</a>
-                    </span>
-                    </div>
-                  </div>
-              </div>
-            <div class="filter-lane pagination-lane">
-              </div>
-          </div>
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/logo_play_apple-4629230.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/logo_play_apple-4629230.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078392"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 2.72727%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; "><span style="font-weight: bold;"><span style="font-size: 20px; color: rgb(0, 0, 0);"><br><br><span style="font-size: 18px;">Créez votre identité et votre univers</span></span></span></p><p style="text-align: center; "><span style="font-weight: bold;"><span style="font-size: 20px; color: rgb(0, 0, 0);"><span style="font-size: 18px;"> de coach.</span><br><br></span><span style="font-size: 18px;">  
+</span></span></p><p style="text-align: center; "><span style="font-weight: bold; font-size: 20px; color: rgb(0, 0, 0);"><span style="font-size: 18px;">Développez votre propre application sur </span><br><span style="font-size: 18px;">AppleStore et Googleplay.</span></span></p><p style="text-align: center; "><br></p><p style="text-align: center; ">    
+</p><p style="text-align: center; "><span style="font-weight: bold; color: rgb(127, 127, 127);"><span style="font-size: 16px;">Votre ADN visuel mérite d'être connu.</span><br><br></span></p><p style="text-align: center; "><span style="color: rgb(127, 127, 127); font-size: 16px;">C'est pour cela qu'INITHY&nbsp;</span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">à mis tout en œuvre pour que </span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">vous puissiez adapter votre image&nbsp;</span><span style="font-family: &quot;Open Sans&quot;; color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">de marque auprès de votre clientèle, ce qui va lui permettre d'entrer&nbsp;</span><span style="font-family: &quot;Open Sans&quot;; color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">dans votre identité graphique et d'avoir une réelle</span></p><p style="text-align: center; "><span style="color: rgb(127, 127, 127); font-size: 16px;">sensation de personnalisation.</span></p><p style="text-align: center; "><span style="color: rgb(127, 127, 127);"><br></span></p><p style="text-align: center; ">
+</p><p style="text-align: center; "><span style="font-weight: bold; color: rgb(127, 127, 127); font-size: 16px;">&nbsp; Nous pouvons également vous créer vos propres fonctionnalités.</span></p><p style="text-align: center; "><span style="font-weight: 700;">
+</span></p><p style="text-align: center; "><span style="font-weight: 700;">
+</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column  justify-center   has-bg-color" 
+                 style="width: 50%;
+                 padding-left:0%;padding-right:1%;background-color: rgba(255, 255, 255, 1);
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-          <div class="products-filter" id="storeProductsFilterWrapper">
-              <a class="mobile-close-btn"><img src="https://static.web-repository.com/images/feed-close.png"></a>
-              <section>
-                <h3>Catégorie</h3>
-                <ul class="filter-categories" id="productsFilter">
-                  <li class="active"><a href="/store/">Tous les produits</a></li>
-                  <li class="">
-                      <a data-url="yoga" data-id="8" href="/store/category/yoga" title="Yoga">Yoga</a>
-                      </li>
-                  </ul>
-              </section>
-              <section class="price-section">
-                <h3>Prix</h3>
-                  <div id="priceSlider"></div>
-                  <input readonly value="" id="lowerPriceRange">
-                  <input readonly value="" id="upperPriceRange">
-                </section>
-              </div>
-          </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628078391"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 0%; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           >
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 65.30732860520095%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Outils-de-Personnalisation_1280x720-2994242.png">
+            <a class="lazyImage flex flex-col
+                image-bigger image-cover-height image-cover"
+               
+                 style=""
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/Outils-de-Personnalisation_1280x720-2994242.png" class="flex-none" alt="Test" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078062"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:2.62743%;
+      padding-top: 2.62743%; padding-left: 0;
+      background-color: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(27deg, rgba(0, 0, 0, 1) 0%, rgba(62, 62, 62, 1) 100%);">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 61%;
+                 padding-left:0%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078061"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 3.508771929824561% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078060"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">Accédez à La Démo </span></p><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">d'INITHY Gratuitement</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 39%;
+                 padding-left:0%;padding-right:0%;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1624628078059"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1hwTjxkQzSRuVqRVPX-Gcbg48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1 border-color-secondary1 color-secondary4" 
+             style="font-size: 17px; 
+             letter-spacing:0px;border-width: 3px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: nullpx nullpx nullpx nullpx  none;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    COMMENCER MAINTENANT</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078056"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0.946074%;
+      padding-top: 1.8392%; padding-left: 0;
+      background-color: rgba(255, 255, 255, 1);
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1624628078055"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 0.5;"><span style="font-size: 16px; color: rgb(0, 0, 0); font-weight: bold; font-family: &quot;Metropolis BOLD&quot;;" class="color-secondary1">La solution se découpe</span><span style="font-size: 16px; color: rgb(0, 0, 0); font-weight: bold; font-family: &quot;Metropolis BOLD&quot;;" class="color-secondary1"> en deux outils qui vont simplifier considérablement votre quotidien :</span></h2></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078054"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0.946074%;
+      padding-top: 0%; padding-left: 0;
+      background-color: rgba(255, 255, 255, 1);
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078053"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInUp"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; "><span class="color-secondary1" style="font-weight: bold; font-size: 18px;"><span style="font-size: 16px;">Votre propre application Ultra-personnalisable&nbsp;</span><span class="color-secondary1" style="font-size: 16px;">qui </span><span style="font-size: 16px;">intègre de nombreuses fonctionnalités et sa&nbsp;plateforme de gestion associée​.</span></span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078050"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:3.25801%;
+      padding-top: 0%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628078049"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-center" 
+           >
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 87.13450292397661%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/macbookiphonewatches-é-3956017.png">
+            <a class="lazyImage flex flex-col
+                image-bigger image-cover-width image-cover"
+               
+                 style=""
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/macbookiphonewatches-é-3956017.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628078048"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:2.62743%;
+      padding-top: 2.62743%; padding-left: 0;
+      background-color: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(27deg, rgba(0, 0, 0, 1) 0%, rgba(62, 62, 62, 1) 100%);">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 61%;
+                 padding-left:0%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628078047"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 3.508771929824561% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628078046"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">Accédez à La Démo </span></p><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">d'INITHY Gratuitement</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 39%;
+                 padding-left:0%;padding-right:0%;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1624628078045"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1hwTjxkQzSRuVqRVPX-Gcbg48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1 border-color-secondary1 color-secondary4" 
+             style="font-size: 17px; 
+             letter-spacing:0px;border-width: 3px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: nullpx nullpx nullpx nullpx  none;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    COMMENCER MAINTENANT</span>
+                </a>
+        </div>
       </div>
     </div>
   </div>
@@ -4332,9 +5417,7 @@ pintrk('page');
       </script>
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=912" data-cookieconsent="ignore"></script>
-        <script type="text/javascript" src="https://static.web-repository.com/scripts/jquery-ui.min.js?v=912" data-cookieconsent="ignore"></script>
-        <link rel="preload stylesheet" as="style" href="https://static.web-repository.com/styles/jquery-ui.min.css?v=912" />
-      <script>
+        <script>
 jQuery(document).ready(function($){
     $("a.not-visible-badge").hide();
 });

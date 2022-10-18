@@ -12,22 +12,22 @@
 
       <link rel="icon" href="data:," />
 
-      <title>Store</title>
+      <title>Conditions d'Utilisation | Logiciel Entraîneurs &amp; Coachs | Inithy</title>
 
-      <link rel="canonical" href="https://inithy.build.superagency.io/store" />
-      <meta property="og:url" content="https://inithy.build.superagency.io/store"/>
-      <meta itemprop="url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="twitter:url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="description" content="" />
+      <link rel="canonical" href="https://inithy.build.superagency.io/conditions-generales-d-utilisations" />
+      <meta property="og:url" content="https://inithy.build.superagency.io/conditions-generales-d-utilisations"/>
+      <meta itemprop="url" content="https://inithy.build.superagency.io/conditions-generales-d-utilisations"/>
+      <meta name="twitter:url" content="https://inithy.build.superagency.io/conditions-generales-d-utilisations"/>
+      <meta name="description" content="Découvrez nos conditions générales d'utilisation afin d'en savoir plus sur Inithy, la meilleure application pour coach sportif, entraîneur et nutritionniste." />
       <meta property="og:site_name" content="inithy" />
-      <meta property="og:title" content="Store"/>
+      <meta property="og:title" content="Conditions d'Utilisation | Logiciel Entraîneurs &amp; Coachs | Inithy"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:description" content=""/>
-      <meta itemprop="name" content="Store"/>
-      <meta itemprop="description" content=""/>
-      <meta name="twitter:title" content="Store"/>
+      <meta property="og:description" content="Découvrez nos conditions générales d'utilisation afin d'en savoir plus sur Inithy, la meilleure application pour coach sportif, entraîneur et nutritionniste."/>
+      <meta itemprop="name" content="Conditions d'Utilisation | Logiciel Entraîneurs &amp; Coachs | Inithy"/>
+      <meta itemprop="description" content="Découvrez nos conditions générales d'utilisation afin d'en savoir plus sur Inithy, la meilleure application pour coach sportif, entraîneur et nutritionniste."/>
+      <meta name="twitter:title" content="Conditions d'Utilisation | Logiciel Entraîneurs &amp; Coachs | Inithy"/>
       <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:description" content=""/>
+      <meta name="twitter:description" content="Découvrez nos conditions générales d'utilisation afin d'en savoir plus sur Inithy, la meilleure application pour coach sportif, entraîneur et nutritionniste."/>
       <script type="text/javascript">
         var WebPlatform = window.WebPlatform || {};
 
@@ -70,253 +70,9 @@
       <link rel="preload stylesheet" as="style" media="(max-width: 480px)"
             href="https://static.web-repository.com/t/theme25/css/trunk-480.min.css?v=912" id="style-480" class="stylesheet"/>
 
-      <script type="text/javascript">
-      WebPlatform.onReady(function () {
-        var root = $('#store-catalog-widget-1666071947663');
-        var hasQuickView = false;
-        var showBuyButtonInLists = false;
-        var sort = '';
-        var searchFilter = '';
-        var filterUrlPart = '';
-        var variationsFilter = null;
-        var sortByFilter = root.find('#sortByFilter');
-        var productsPerPageFilter = root.find('#productsPerPageFilter');
-        var category = '';
-        var lowerPriceRange = 0;
-        var upperPriceRange = Math.abs(100);
-        var maxPrice = Math.abs(100);
-        var subcategories = '';
-        var mobileStoreOverlay = root.find('#mobileStoreOverlay');
-        var storeProductsFilterWrapper = root.find('#storeProductsFilterWrapper');
-        var productFilterMobileButton = root.find('#productFilterMobileButton');
-        var variations = storeProductsFilterWrapper.find('.filter-by-variation');
-        var variationsFilterUrl = '';
-
-        if (variations.length > 0) {
-          variations.on('click', '.variation-filter-link', function (event) {
-            var li = $(event.target).closest('li').toggleClass('active');
-            var url = '';
-            variations.each(function (idx, variation) {
-              variation = $(variation);
-              var checked = variation.find('li.active');
-              if (checked.length > 0) {
-                var filterValues = '';
-                checked.each(function (idx, elem) {
-                  var filter = ($(elem).data('filter') || '') + '';
-                  if (filter) {
-                    if (filterValues !== '')
-                      filterValues += ',';
-                    filterValues += encodeURIComponent(filter.replace('&', '^'));
-                  }
-                });
-                if (filterValues !== '') {
-                  if (url !== '')
-                    url += '&';
-                  url += encodeURIComponent(variation.find('h3').text().replace('&', '^'));
-                  url += '=' + filterValues;
-                }
-              }
-            });
-            variationsFilterUrl = url;
-            refreshFiltering();
-          });
-        }
-
-        if (variationsFilter !== null) {
-          variations.each(function (idx, elem) {
-            var root = $(elem);
-            var heading = root.find('h3').text().toLowerCase();
-            var filtered = [];
-            for (var idx = 0; idx < variationsFilter.length; ++idx) {
-              if (variationsFilter[idx].name.toLowerCase() === heading) {
-                filtered = variationsFilter[idx].values;
-                break;
-              }
-            }
-            if (filtered.length > 0) {
-              var items = root.find('li');
-              items.each(function (idx, li) {
-                var li = $(li);
-                var filter = ((li.data('filter') || '') + '').toLowerCase();
-                for (var idx = 0; idx < filtered.length; ++idx) {
-                  if (filtered[idx].first.toLowerCase() === filter) {
-                    li.addClass('active');
-                    break;
-                  }
-                }
-              });
-            }
-          });
-        }
-
-        var refreshFiltering = function () {
-          var newSort = sortByFilter.val();
-          var newRows = +productsPerPageFilter.val();
-          var newUrl = WebPlatform.Store.baseUrl;
-          if (category !== '')
-            newUrl += '/category/' + category;
-          if (subcategories !== '')
-            newUrl += '/sub/' + subcategories;
-          if (variationsFilterUrl !== '')
-            newUrl += '/var/' + variationsFilterUrl;
-          if (newRows !== 4)
-            newUrl += '/rows/' + newRows;
-          if (newSort)
-            newUrl += '/sort/' + newSort;
-          if (searchFilter)
-            newUrl += '/search/' + encodeURI(searchFilter);
-          if (lowerPriceRange > 0 || upperPriceRange !== maxPrice)
-            newUrl += '/range/' + lowerPriceRange + ',' + upperPriceRange;
-          ClientTools.showLoader();
-          window.location.href = newUrl;
-        };
-        sortByFilter.val(sort).add(productsPerPageFilter).change(refreshFiltering);
-
-        try {
-          root.find('#productsFilter').on('click', '.has-subcategories > a', function (event) {
-            var elem = $(this);
-            var clickedOnArrow = $(event.target).is('.arrow');
-            var li = elem.parent();
-            if (!clickedOnArrow && li.hasClass('open') && li.children('ul').children('.active').length > 0)
-              return;
-            if (li.hasClass('open')) {
-              li.removeClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (li.children('ul').length > 0) {
-              li.addClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (clickedOnArrow) {
-              li.addClass('open');
-              WebPlatform.makeClientWebsiteRequest({
-                action: 'getStoreSubcategories',
-                data: {
-                  parent: elem.data('id')
-                },
-                onOk: function (result) {
-                  var categoriesPath = [elem.data('url')];
-                  var rootElem = elem.closest('ul');
-                  while (true) {
-                    if (rootElem.hasClass('filter-categories'))
-                      break;
-                    categoriesPath.push(rootElem.parent().children('a').data('url'));
-                    rootElem = rootElem.parent().closest('ul');
-                  }
-
-                  var baseUrl = WebPlatform.Store.baseUrl + '/category/';
-                  for (var idx = categoriesPath.length - 1; idx >= 0; --idx) {
-                    if (idx === categoriesPath.length - 1)
-                      baseUrl += categoriesPath[idx] + '/sub/';
-                    else
-                      baseUrl += categoriesPath[idx] + ',';
-                  }
-
-                  var categories = result.data;
-                  var markup = '<ul>';
-                  for (var idx = 0; idx < categories.length; ++idx) {
-                    var category = categories[idx];
-                    var hasSubcategories = category.left + 1 < category.right;
-                    markup += '<li class="' + (hasSubcategories ? 'has-subcategories' : '') + '">';
-                    markup += '<a data-url="' + category.url + '" data-id="' + category.id + '" href="' + baseUrl + category.url + filterUrlPart + '">' + category.name;
-                    if (hasSubcategories) {
-                      markup += '<div class="arrow"></div>';
-                    }
-                    markup += '</a>';
-                    markup += '</li>';
-                  }
-                  markup += '</ul>';
-                  elem.after(markup);
-                }
-              });
-              return WebPlatform.preventDefault(event);
-            }
-          });
-          var onPriceSliderChanged = $.debounce(800, function () {
-            var newUrl = WebPlatform.clearUrlParameter(window.location.href, 'range', WebPlatform.URL_PARAM_ANY);
-            newUrl = WebPlatform.clearUrlParameter(newUrl, 'page', WebPlatform.URL_PARAM_ANY);
-            if (!newUrl.endsWith('/'))
-              newUrl += '/';
-            newUrl += 'range/' + lowerPriceRange + ',' + upperPriceRange;
-            ClientTools.showLoader();
-            window.location.href = newUrl;
-          });
-          var searchFilterField = $('#searchFilter');
-          if (searchFilterField.length) {
-            var doSearch = function () {
-              var searchVal = searchFilterField.val().trim();
-              if (searchVal !== searchFilter) {
-                searchFilter = searchVal;
-                refreshFiltering();
-              }
-            };
-            searchFilterField.val(searchFilter).keypress(function (e) {
-              if (e.which === 13) {
-                doSearch();
-              }
-            });
-            $('.search-widget-icon').click(doSearch);
-          }
-          root.find('#lowerPriceRange').val(WebPlatform.currToStr(lowerPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find('#upperPriceRange').val(WebPlatform.currToStr(upperPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find("#priceSlider").slider({
-            values: [lowerPriceRange, upperPriceRange],
-            min: 0,
-            max: maxPrice,
-            step: 5,
-            range: true,
-            slide: function (event, ui) {
-              lowerPriceRange = ui.values[0];
-              upperPriceRange = ui.values[1];
-              root.find('#lowerPriceRange').val(WebPlatform.currToStr(ui.values[0], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              root.find('#upperPriceRange').val(WebPlatform.currToStr(ui.values[1], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              onPriceSliderChanged();
-            }
-          });
-          productFilterMobileButton.click(function () {
-            if (mobileStoreOverlay.hasClass('none')) {
-              mobileStoreOverlay.removeClass('none');
-              storeProductsFilterWrapper.show();
-              $('body').addClass('with-product-filter');
-            }
-            else {
-              mobileStoreOverlay.addClass('none');
-              storeProductsFilterWrapper.hide();
-              $('body').removeClass('with-product-filter');
-            }
-          });
-          root.find('.mobile-close-btn').click(function () {
-            productFilterMobileButton.click();
-          });
-        } catch (e) {
-          Log.error(e);
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="viewProduct"]', function () {
-            var id = $(this).closest('.product-item').data('id');
-            WebPlatform.Store.showProductInQuickView(id);
-            return false;
-          });
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="addToCart"]', function () {
-            var elem = $(this);
-            var product = elem.closest('.product-item');
-            var id = product.data('id');
-            var process = elem.data('process');
-            WebPlatform.Store.addProductToCart(id, process);
-            return false;
-          });
-        }
-      });
-    </script>
-  <meta property="og:image" content="https://content.app-sources.com/" />
-        <meta itemprop="image" content="https://content.app-sources.com/" />
-        <meta name="twitter:image" content="https://content.app-sources.com/"/>
+      <meta property="og:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/logo_inithy_avatar-4868549.png" />
+        <meta itemprop="image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/logo_inithy_avatar-4868549.png" />
+        <meta name="twitter:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/logo_inithy_avatar-4868549.png"/>
       <!--[if lt IE 9]>
       <script type="text/javascript" src="https://static.web-repository.com/scripts/common/html5shiv.min.js"></script>
       <![endif]-->
@@ -2532,14 +2288,14 @@ pintrk('page');
       <div class="content">
         <div 
       
-      id="container-widget-15041"
+      id="container-widget-1624560828107"
       
       data-type="Container"
       class="grid-row
        stretched-mobile stretched-tablet"
       data-delay=""
-      style="padding-bottom:3.6784%;
-      padding-top: 0%; padding-left: 0;
+      style="padding-bottom:5.69981%;
+      padding-top: 0px; padding-left: 0;
       background-color: transparent;
         background-position: center center;
         background-repeat: no-repeat;
@@ -2560,192 +2316,245 @@ pintrk('page');
                  
                  ">
 
-              <div class="widget-row with-centered-content">
-                  <div class="widget style-1 catalogue-style-1
-          widgetResponsive col20" id="store-catalog-widget-1666071947663"
-         data-type="system/StoreCatalogWidget"
-         data-delay=""
-         data-animation-duration=""
-         data-animation-delay=""
-         data-animation="lazyAnimation-"
-         style="margin-top: 6%; margin-left: 0;">
-      <div class="main-widget-content">
-        <style type="text/css">
-          </style>
-
-        <div class="style-1 product-list-wrapper center-align quick-view-1 products-per-row-2 side-filter">
-          <div class="lane-list-wrapper">
-            <div class="products-filter products-filter-style-2 inline-filter  inline-filter">
-              <section>
-                <ul class="filter-categories">
-                  <li class="active"><a href="/store" title="Tout" data-filter="none">Tout</a></li>
-                    <li class=""><a href="/store/category/yoga" title="Yoga">Yoga</a></li>
-                    </ul>
-              </section>
-            </div>
-
-            <div class="filter-lane">
-              <div class="flex aling-center flex-column space-between filter-inner-lane">
-                <div>
-                  <h1>Tous les produits</h1>
-                  <div class="products-showing">
-                    <span>
-                      Montrer les 3 résultats</span>
-                  </div>
-                </div>
-                <div class="mobile-overlay none" id="mobileStoreOverlay"></div>
-                <div class="col20 f-left mobile-view">
-                  <a id="productFilterMobileButton" class="mobile-store-filter">Filtre produit</a>
-                  </div>
-                <div class="none">
-                  <select id="productsPerPageFilter">
-                    <option value="" disabled>Products per page</option>
-                    <option value="4" selected>8</option>
-                    <option value="6" >12</option>
-                    <option value="8" >16</option>
-                  </select>
-                </div>
-                <div class="flex align-center">
-                  <label>Trier par</label>
-                  <select id="sortByFilter">
-                    <option value="">Le plus récent d'abord</option>
-                    <option value="a-z">A - Z</option>
-                    <option value="z-a">Z - A</option>
-                    <option value="price">Le moins cher d'abord</option>
-                    <option value="price-desc">Le plus cher d'abord</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="products-list">
-              <div class="product-item  " data-id="16"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-experts">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thao-le-hoang-733047-unsplash-7115107-1880186.jpg" alt="Yoga for Experts"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-experts" class="highlightColor">
-                        Yoga for Experts</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-experts">
-                        $100.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="15"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-advanced">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/bruce-mars-558730-unsplash-7115090-1880186.jpg" alt="Yoga for Advanced"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-advanced" class="highlightColor">
-                        Yoga for Advanced</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-advanced">
-                        $80.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="14"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
-
-                      <a href="/store/yoga-for-newbies">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thought-catalog-685332-unsplash-7115108-1880189.jpg" alt="Yoga for Newbies"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-newbies" class="highlightColor">
-                        Yoga for Newbies</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-newbies">
-                        $50.00</a>
-                    </span>
-                    </div>
-                  </div>
-              </div>
-            <div class="filter-lane pagination-lane">
-              </div>
-          </div>
-
-          <div class="products-filter" id="storeProductsFilterWrapper">
-              <a class="mobile-close-btn"><img src="https://static.web-repository.com/images/feed-close.png"></a>
-              <section>
-                <h3>Catégorie</h3>
-                <ul class="filter-categories" id="productsFilter">
-                  <li class="active"><a href="/store/">Tous les produits</a></li>
-                  <li class="">
-                      <a data-url="yoga" data-id="8" href="/store/category/yoga" title="Yoga">Yoga</a>
-                      </li>
-                  </ul>
-              </section>
-              <section class="price-section">
-                <h3>Prix</h3>
-                  <div id="priceSlider"></div>
-                  <input readonly value="" id="lowerPriceRange">
-                  <input readonly value="" id="upperPriceRange">
-                </section>
-              </div>
-          </div>
+              <div class="widget-row ">
+                  <div class="widget 
+          
+         widgetResponsive spacer col20" id="spacer-widget-1624559495658"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 12.849800114220445% ">
+        <div class="widget-preserving-ratio-inner"></div>
       </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626163656548"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h1 style="text-align: center;"><span style="color: rgb(0, 0, 0);">Nos Conditions D'utilisation.</span></h1></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626163656128"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h1 style="text-align: center;"><span style="color: rgb(0, 0, 0);">Nos Conditions D'utilisation</span></h1></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+          widgetResponsive textWidget col20" id="text-widget-1624559495657"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-0"
+         style="margin-top: 2.77778%; margin-left: 0px;">
+      <div class="text-widget-content"><p><span style="font-weight: bold; color: rgb(0, 0, 0); font-size: 20px;" class="color-secondary1">CONDITIONS GÉNÉRALES D'UTILISATION DE L’APPLICATION MOBILE EN MARQUE BLANCHE</span></p><p><span style="font-weight: bold;" class="color-secondary1"><br></span></p><p><span style="font-weight: bold;" class="color-secondary1">
+</span></p><p><span style="font-weight: bold;"><span class="color-secondary1">VEUILLEZ LIRE ATTENTIVEMENT LES PRESENTES CONDITIONS GENERALES D’UTILISATION. ELLES DEFINISSENT LES CONDITIONS ET RESTRICTIONS D’UTILISATION QUE VOUS ACCEPTEZ EN ACCEDANT ET EN PERMETTANT L’ACCES A L’APPLICATION DEVELOPPEE PAR INITHY.</span>
+</span></p><p><br></p><p>INITHY est une Société par actions simplifiée au capital de 1.000 €, immatriculée au RCS de Bastia sous le numéro 834.937.104, ayant siège Route de l’aéroport – la Ronca Ldt Chiosu Longu – 20214 CALENZANA – France
+</p><p>INITHY a imaginé, conçu et développé une application, disponible uniquement sur smartphone (ANDROID et IOS et accessible depuis GOOGLE PLAY et APPLE STORE), permettant de manière évolutive et communautaire de suivre de manière rigoureuse et ludique des programmes sportifs et nutritionnels.
+</p><p><br></p><p>Cette application, proposée en marque blanche aux acteurs du monde sportif et de la nutrition (salles de sport et fitness, club ou associations sportives ou pouvant avoir un lien avec l’activité sportive et nutritionnelle…), est par conséquent personnalisable. Elle dispose de contenus sportifs et nutritionnels implémentés par INITHY et ses partenaires. Elle peut également, sous leur seule responsabilité, être alimentée en contenus par les communautés des clients et utilisateurs de ces acteurs.
+</p><p>Les présentes conditions générales d'utilisation fixent le cadre juridique régissant l'utilisation de notre application et les services que nous proposons.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">1. Objet
+</span></p><p><br></p><p>Les présentes conditions générales d’utilisation ont pour objet de définir les conditions dans lesquelles INITHY met à disposition du Client les services applicatifs proposés en mode SaaS sur le site internet et mobile accessible à l’adresse URL suivante : www.inithy.com
+</p><p>Les informations légales concernant l’éditeur de l’application sont fournies dans les mentions légales de l’application.
+</p><p>Les informations relatives à la politique de collecte et au traitement des données personnelles sont fournies dans la politique de confidentialité de l’application.
+</p><p>L’utilisation de l’application implique la prise de connaissance et l’acceptation des présentes conditions générales d’utilisation et de la politique de confidentialité de l’application.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">2. Contenu et fonctionnalités de l’application :
+</span></p><p><br></p><p>Par la prise de connaissance et l’acceptation des présentes conditions générales, le client reconnaît avoir été pleinement informé, notamment au travers d’une démonstration en ligne qui lui a été proposée, des fonctionnalités et possibilités de l’application développée par INITHY.
+</p><p>Ces fonctionnalités sont notamment décrites sur le site internet de INITHY, lequel contient de nombreux tutoriels.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">3. Durée du contrat/d’utilisation de l’application
+</span></p><p><br></p><p>Le client s’abonne, quel que soit le pack choisi (or, argent, bronze, sur mesure), pour une durée initiale incompressible de 12 mois, reconductible tacitement par périodes de douze mois.
+</p><p>L’abonnement court à compter de la transmission par courriel au client du lien permettant l’activation, l’accès à l’application et sa mise à disposition aux utilisateurs du client.
+</p><p>Le client dispose de la faculté de mettre fin à son abonnement pour le terme de chaque période de douze mois, sous condition d’en avertir INITHY par lettre recommandée avec avis de réception au plus tard deux mois avant la date de reconduction.
+</p><p>En résiliant son abonnement, le client reconnait le droit pour INITHY de lui supprimer tout accès, à compter de la date anniversaire, à l’application même personnalisée. Le client fera son affaire personnelle des conséquences de l’arrêt d’utilisation de l’application à l’égard de la communauté constituée par ses utilisateurs finaux. Le client s’oblige en particulier à répercuter auprès des utilisateurs finaux l’arrêt des services et fonctionnalités liés à l’application. Le client garantit en tout état de cause INITHY de toute réclamation qui pourrait être élevée par l’utilisateur final à ce titre.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">4. Personnalisation
+</span></p><p><br></p><p>L’application est mise à disposition en marque blanche.
+</p><p>Le service rendu par INITHY comprend la personnalisation de l’application à l’image du client.
+</p><p>INITHY assure cette personnalisation dans les 72 heures ouvrables à compter de la transmission complète, par le client, des informations nécessaires (fichiers, images, charte de couleur..etc ).
+</p><p>INITHY se réserve la possibilité, pour une intégration spécifique de contenu (compte tenu de son volume par exemple), de proposer un devis complémentaire préalablement.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">5. Conditions d’accès et d’utilisation de l’application
+</span></p><p><br></p><p>Le client a parfaitement conscience que l’application INITHY et les services proposés se rapportent à du contenu numérique non fourni sur un support physique. En utilisant l’application, le client renonce expressément à tout droit de rétractation.
+</p><p>Les services de l’application sont en principe accessibles, à l’exception des périodes de maintenance, 24h/24 7 jours/7 y compris les dimanches et jours fériés.
+</p><p>Les services sont hébergés au sein d’une infrastructure utilisant les ressources de INITHY ou de ses sous-traitants.
+</p><p>Pour accéder aux services, le client est informé et doit informer l’utilisateur qu’il doit disposer d’un accès au réseau internet à haut débit (un backup 4G est recommandé) et posséder le matériel nécessaire.
+</p><p>Le Client est seul responsable de l'accès aux Services. Le Prestataire est dégagé de toute responsabilité en cas d'impossibilité d'accès aux Services du fait d'un évènement qualifié de force majeure au sens de l’article 1218 du Code Civil et de la jurisprudence française. Le Client est responsable de l'utilisation des Services qu’il en fait. Il lui appartient de veiller à ce que ses utilisateurs respectent les conditions contractuelles d'accès et d’utilisation des Services. Il est responsable des conséquences résultant de cette utilisation.
+</p><p>Le Client ne pourra céder ou transférer de quelque façon que ce soit le droit d'accès aux Services sans l'accord préalable et écrit du Prestataire. La mise à disposition de l’application est strictement limitée à ses utilisateurs. Le Client s'engage à ne pas laisser accéder aux Services des personnes non autorisées et doit veiller à ce que chaque personne autorisée respecte les règles de confidentialité de ses Identifiants. L'accès aux Services est autorisé pour le nombre de d’utilisateurs défini dans les Conditions Particulières. Si le Client souhaite utiliser les Services pour un plus grand nombre d’utilisateurs, il en informe le Prestataire afin que ce dernier lui adresse un devis sur cette base. En tout état de cause, l’utilisation de l’application par un nombre d’utilisateurs supérieur au pack souscrit peut donner lieu à facturation supplémentaire d’INITHY, suivant la grille tarifaire remise.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">6. Droit d’utilisation
+</span></p><p><br></p><p>En contrepartie du paiement du prix et du respect par le Client du Contrat, le Prestataire lui accorde un droit d’accès et d’utilisation des Services, non exclusif, non transférable et révocable, dans le seul but de permettre au Client d'accéder aux Services. Ce droit est consenti pour un usage interne et sur le site du Client, ce dernier s'interdisant d'utiliser les Applicatifs au profit de tout tiers ou de la mettre à la disposition de tiers.
+</p><p>INITHY détient tous les droits de propriété notamment tous les droits de propriété intellectuelle sur les Services et toute documentation qui y serait relative, ce que le Client reconnaît expressément.
+</p><p>En cas de non-respect des présentes, le Prestataire se réserve le droit de suspendre ou restreindre le Service et/ou de résilier le Contrat.
+</p><p><br></p><p><span style="font-weight: bold;"><span class="color-secondary1">7</span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; background-color: rgba(255, 255, 255, 0);" class="color-secondary1">. Prix des services / faculté de révision</span></span></p><p><br></p><p>En contrepartie de l’utilisation des services de l’application, le client souscrit à un abonnement payable mensuellement, suivant le niveau du pack souscrit (ou montant défini aux conditions particulières pour un abonnement sur-mesure).
+</p><p>L’abonnement est payable mensuellement d’avance par prélèvement automatique au moyen de l’IBAN qui sera remis par le client à INITHY.
+</p><p>Le montant mensuel de l’abonnement est fixe pour la première année d’exécution. A l’issue de chaque échéance annuelle, INITHY se réserve la possibilité, ce que le client accepte d’ores et déjà par la prise de connaissance et l’acceptation des présentes conditions, d’appliquer une augmentation du coût de l’abonnement de 3,33 %.
+</p><p>En, cas de prélèvement infructueux pour quelque raison que ce soit, le Client se verra adresser une lettre recommandée avec avis de réception le mettant en demeure de régulariser la situation. Faute d’y procéder sous huitaine, INITHY disposera de la faculté de résilier le Contrat, de plein droit, sans préavis ni formalité judiciaire, sans préjudice de tous dommages et intérêts.
+</p><p>Tout retard de paiement entraînera le calcul d’un intérêt de retard d’un montant du montant le plus élevé entre la somme correspondant à trois (3) fois le taux de l’intérêt légal.
+</p><p>Une indemnité forfaitaire pour frais de recouvrement de quarante (40) euros est applicable pour tout paiement intervenu après la date d’exigibilité de la facture outre les frais réels supportés.
+</p><p>Le non-paiement entraînera l’exigibilité immédiate du prix d’utilisation des services qui aurait dû être perçu jusqu’au terme de la période contractuelle de douze mois.
+</p><p>Dans l’hypothèse où INITHY conviendrait d’une reconnexion aux services, le coût sera facturé au Client d’une somme forfaitaire supplémentaire équivalente aux frais de setup en vigueur.</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">8. Contenus INITHY / client-utilisateur
+</span></p><p><br></p><p>Contenus INITHY : L’application développée par INITHY comprend déjà, dès sa mise à disposition, des contenus s’apparentant à des conseils/ préconisations à caractère sportif et/ou nutritionnel. Ces contenus n’ont à aucun moment vocation :
+</p><p>A répondre à l’ensemble des exigences du client et des utilisateurs A constituer des préconisations à caractère médical
+</p><p>INITHY rappelle, et il appartient au client de diffuser ces informations à ses utilisateurs, que tout programme sportif ou conseil nutritionnel éventuellement associé ne préjuge en rien de la capacité de l’utilisateur à le réaliser sans danger et en toute sécurité.
+</p><p>Il appartient à l’utilisateur, ce que le client doit lui rappeler lorsqu’il souscrit aux services de l’application, de s’assurer, préalablement, de la compatibilité de son état physique avec réalisation de tout programme sportif ou nutritionnel proposé par INITHY.
+</p><p>Contenus client/utilisateurs : le client et les utilisateurs disposent de la faculté, sous la forme d’une communauté, de diffuser des contenus en lien avec l’objet de l’application. INITHY ne saurait être tenue responsable de ces contenus qui sont implémentés sous la seule responsabilité du client et des utilisateurs.
+</p><p>INITHY ne peut qu’inciter le client à rappeler les conseils de prudence rappelés ci-dessus aux utilisateurs et à veiller à ce que les contenus de ses utilisateurs respectent les dispositions légales et réglementaires.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">9. Maintenance
+</span></p><p><br></p><p>INITHY assure ou sous -traite des prestations de maintenance de l’application et de support utilisateur. Les interventions de maintenance réalisées directement par le Prestataire ont en principe lieu hors jours et heures ouvrés. Ainsi, en cas de maintenance programmée nécessitant une interruption momentanée de tout ou partie du Service, INITHY informera le Client par courriel ou SMS dès la prise de connaissance de l’information.
+</p><p>Par exception, le Prestataire pourra interrompre immédiatement sans préavis tout ou partie du Service au bénéfice d’un, plusieurs, ou de la totalité des Clients en cas de raison impérieuse, notamment pour des raisons de sécurité ou de continuité des Services. Dans ce cas, le Prestataire fera son possible pour informer le(s) Client(s) par courriel ou SMS.
+</p><p>Une prestation de support par courriel téléphone permettant de traiter les anomalies est disponible du lundi au vendredi inclus, de 9h à 17h30. Les signalements d’anomalie sont confirmés par email au Prestataire dans les plus brefs délais. Le Prestataire n’est pas responsable de la maintenance dans les cas suivants : (i) non collaboration du Client dans la résolution des anomalies et notamment dans les réponses aux questions et demandes de renseignement, (ii) utilisation du Service non conforme à sa destination, (iii) modification ou tentative de modification non autorisée des modules, Données ou Services par le Client ou par un tiers, (iv) manquement du Client à ses obligations au titre du Contrat, (v) utilisation de tous progiciels, logiciels ou système d'exploitation non compatibles avec les Services, (vi) défaillance des réseaux de communication.
+</p><p>Le service d’assistance technique INITHY qui consiste à répondre aux questions des Utilisateurs est disponible par email (à l’adresse contact@inithy.com) au avec une intervention à distance.
+</p><p><br></p><p><span style="font-weight: bold;"><span class="color-secondary1">10. Données</span>
+</span></p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">10.1 Propriété des Données
+</span></p><p><br></p><p>Le Client est seul titulaire des droits sur les Données traitées dans le cadre de l’utilisation de l’application. Le Client concède, en tant que de besoin, au Prestataire et à ses sous-traitants une licence non exclusive et mondiale, gratuite et cessible lui permettant notamment de collecter, d’utiliser, d’analyser, d'héberger, de mettre en cache, de copier et d'afficher lesdites Données dans le cadre des Services. La présente licence prendra fin automatiquement à la résiliation ou au terme du présent Contrat, sauf nécessité de poursuivre l'hébergement des Données et leur traitement, notamment dans le cadre d’une obligation légale. Le Prestataire pourra anonymiser les Données et conserver les Données anonymisées à des fins statistiques et d’amélioration des Services. Le Client déclare et garantit qu'il dispose de toutes les autorisations nécessaires à l'exploitation des Données dans le cadre des Services et garantit le Prestataire et ses sous-traitants de toutes les conséquences qui pourraient en découler.
+</p><p>10.2 Traitement de Données Personnelles
+</p><p>Obligations en tant que Sous-traitant : Les Parties garantissent respecter et appliquer les dispositions de la loi n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés et du Règlement européen sur la protection des données personnelles (ensemble la « Réglementation Data Privacy »).
+</p><p>INITHY collecte et traite les Données Personnelles générées dans le cadre des Services, en tant que Sous-traitant du Client. Le Client, quant à lui, reconnait qu’il lui appartient de disposer des autorisations nécessaires à l’utilisation des Données Personnelles traitées lors de l’utilisation des Services et dont le Client est propriétaire. A ce titre, il appartient au Client de s’assurer du respect des obligations imposées par la Réglementation Data Privacy et notamment d’intégrer dans sa politique de confidentialité les éléments communiqués par INITHY afin d’informer les personnes concernées du traitement de leurs Données Personnelles.
+</p><p>INITHY, en tant que sous-traitant, s’engage à :
+</p><p>Ne traiter les Données Personnelles que sur instruction documentée du Client Informer le Client si une instruction aurait pour conséquence une violation de la Réglementation Data Privacy Veiller à ce que les personnes autorisées à traiter les Données s'engagent à respecter la confidentialité ou soient soumises à une obligation de confidentialité et aient reçu la formation nécessaire en matière de protection des Données Personnelles Mettre en place toutes les mesures techniques et organisationnelles appropriées afin notamment de garantir un niveau de sécurité adapté aux risques liés au traitement des Données Personnelles Tenir à jour un registre de toutes les activités de traitement effectuées pour le compte du Client En tenant compte de la nature du traitement, assister le Client, par des mesures techniques et organisationnelles appropriées et adéquates Informer le Client des demandes dont les Personnes Concernées le saisissent en vue d'exercer leurs droits et ne pas répondre directement aux demandes ; Tenir compte des principes de protection des Données Personnelles dès la conception et de protection des données par défaut Aider de façon raisonnable le Client à garantir le respect des obligations (i) de sécurité, (ii) de notification et communication de violation de Données à Caractère Personnel, (iii) de réalisation d’analyse d’impact à la protection des données et (iv) de consultation préalable de l’autorité nationale de protection des données Notifier au Client dans les soixante-douze (72) heures toute violation de Données Personnelles Communiquer au Client le nom et les coordonnées de son Délégué à la Protection des Données s’il en a désigné un Mettre à la disposition du Client toutes les informations nécessaires pour démontrer le respect des obligations prévues au présent article
+</p><p>Le Client autorise INITHY à faire appel aux sous-traitants ou prestataires identifiés dans la Politique de Confidentialité En tout état de cause, le Prestataire s’engage à conclure un contrat avec le Sous-traitant contenant à minima des engagements similaires à ceux prévues au Contrat en matière de protection des Données Personnelles.
+</p><p>Les traitements de Données Personnelles réalisées par le Prestataire sont décrits dans la Politique de Confidentialité accessible sur le site internet www.inithy.com.
+</p><p>Informations des utilisateurs : Le Client s’engage à informer ses propres clients des traitements réalisés sur leurs Données Personnelles par INITHY.
+</p><p>Le Client informe également ses clients de la possibilité d’exercer leurs droits tels que prévus dans la Règlementation Data Privacy et des durées de conservation de leurs Données Personnelles.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">11. Garanties
+</span></p><p><br></p><p>INITHY garantit le Client contre toute action en contrefaçon qui pourrait être intentée à son encontre par toute personne physique ou morale se prévalant d'un droit de propriété intellectuelle portant sur les Services sous réserve que la contrefaçon résulte exclusivement des Services, sans que le Client ou un tiers y ait apporté de modifications.
+</p><p>INITHY ne fournit aucune autre garantie que la conformité des Services à leur description, notamment, toute garantie d'adéquation de l’application à un objectif particulier. Le Prestataire ne garantit pas la disponibilité des Services 24/7 et à ce titre il n'est tenu que d’une obligation de moyens dans la disponibilité des Services. Il ne garantit pas que les fonctionnalités des Services satisferont les exigences du Client. Les parties reconnaissent qu'une application peut contenir des erreurs et que toutes les erreurs ne sont pas économiquement rectifiables ou qu'il n'est pas toujours nécessaire de les corriger. Dans le cas où, le Client donne accès aux Services à une application ou solution tierce, le Prestataire ne garantit à aucun moment l’interopérabilité des Services avec une quelconque application ou solution tierce.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">12. Responsabilités
+</span></p><p><br></p><p>INITHY apporte un soin particulier à la qualité et à la sécurité de ses infrastructures notamment par une architecture technique garantissant un haut niveau de sécurité et de disponibilité des Services. INITHY ne garantit ni l’accès permanent, ni le fonctionnement sans panne des Services, ni l’exactitude et l’intégrité des Données transmises ou téléchargées, et ne pourra en aucun cas voir sa responsabilité engagée pour l’un quelconque de ces motifs, dans les limites permises par la loi. Le Client reste seul responsable du bon fonctionnement de son système informatique, de la sauvegarde interne des Données. L'usage des Services se fait sous la responsabilité du Client. En outre, le Client déclare et reconnaît que le Prestataire ne pourra être tenue responsable en cas de non interopérabilité ou de difficultés rencontrées liées à l'interopérabilité des Services avec d'autres logiciels ou systèmes, telles que les solutions de paiement. A ce titre, le Prestataire ne prend aucun engagement de réaliser des développements pour permettre une interopérabilité entre la Solution et des solutions / outils tiers.
+</p><p>Le Client reconnaît toutefois que malgré tous les efforts de INITHY, le recours aux technologies les plus modernes et le respect des normes de sécurité, il est impossible de garantir une sécurité absolue et un fonctionnement sans faille des systèmes utilisés. Le Client reconnaît également que du fait des caractéristiques d’Internet, la sécurité s’analyse pour INITHY en une obligation de moyens.
+</p><p>La responsabilité de INITHY est limitée aux préjudices directs dus Client à l’exclusion de tout préjudice indirect, de quelque nature que ce soit, tel que notamment toute perte de chance, de résultat ou d’exploitation interruption d'activité, perte ou corruption de données ou des Données. En tout état de cause la responsabilité de INITHY, pour quelque raison que ce soit, ne pourra en aucun cas excéder le montant acquitté par le Client au cours des six (6) derniers mois précédent le dommage.
+</p><p>La responsabilité de INITHY ne pourra en aucun cas être recherchée en cas :
+</p><p>d'utilisation des Services d'une façon non prévue
+</p><p>d’une utilisation des Services dans un environnement ou selon une configuration ne respectant pas les prérequis techniques, ou en lien avec des programmes ou données de tiers non expressément avalisés
+</p><p>dans les cas prévus à l’article« Maintenance »
+</p><p>de survenance de tout dommage qui résulterait d'une faute ou d'une négligence du Client ou d’un utilisateur, ou que celui-ci aurait pu éviter en faisant appel aux conseils de INITHY
+</p><p>d'utilisation en lien avec les Services de programmes non fournis ou avalisés par INITHY et susceptibles d'affecter les Services ou les Données du Client
+</p><p>d’utilisation litigieuse ou frauduleuse des Services par le client final, quant au contenu, à l’utilisation qui en est faite et aux conséquences éventuelles.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">13. Résiliation
+</span></p><p><br></p><p>Quel que soit le motif de résiliation, le Client autorise, sauf obligation légale contraire, d’ores et déjà INITHY à procéder à la destruction de ses Données, passé un délai de six (6) mois à compter du terme du présent contrat.
+</p><p>Le Contrat pourra être résilié de plein droit, sans indemnité de part ni d'autre par l'une des Parties en cas de manquement par l'autre Partie à ses obligations auquel il n'aura pas été remédié, lorsque cela est possible, dans les quinze (15) jours qui suivent la mise en demeure d'y remédier, étant précisé que la lettre de mise en demeure doit faire référence à la présente disposition.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">14. Respect des lois
+</span></p><p><br></p><p>INITHY se conformera aux obligations légales et réglementaires qui lui sont applicables en sa qualité de prestataire de services au regard de la loi applicable au contrat. INITHY n'est pas tenue d'assumer les obligations légales et administratives du Client, y compris celles se rapportant aux Services fournis dans le cadre du Contrat. Il appartient donc au Client de s'assurer du respect des lois et de la réglementation le concernant. Le Client, pour sa part, s'engage également à se conformer aux lois en vigueur auxquels il est soumis, soit en raison de sa nationalité, soit en raison de sa localisation géographique. Il veillera notamment à respecter les dispositions applicables relatives au contenu des Données afin qu'aucune Donnée contraire à la loi ne puisse être traitée par les Services telles que des Données susceptibles, notamment, de faire l'apologie du crime ou du terrorisme, des Données relatives à la pédophilie et toute autre donnée prohibée.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">15. Propriété intellectuelle
+</span></p><p><br></p><p>Le client reconnait que les brevets, marques, modèles, droits d’auteur et autres droits de propriété intellectuelle notamment liés aux contenus à caractère sportifs et nutritionnels de l’application sont et demeurent la propriété d’INITHY ou de tiers ayant accordé une autorisation d’utilisation expresse à INITHY.
+</p><p>Le client s’oblige donc à ne pas porter atteinte de quelque manière que ce soit aux droits de propriété d’INITHY ou des tiers. En particulier, toute copie des logos, contenus en tous genres et sous quelque forme que ce soit est proscrite.
+</p><p>L’utilisation de l’application INITHY n’implique aucun transfert de propriété.
+</p><p><br></p><p><span style="font-weight: bold;"><span class="color-secondary1">16. Loi applicable et litiges</span>
+</span></p><p><br></p><p>Le Contrat est soumis au droit français.
+</p><p>En cas de différend relatif à l'interprétation ou à l'exécution de leurs accords, les parties rechercheront, avant toute action contentieuse, un accord amiable et se communiqueront à cet effet tous les éléments d'information nécessaires.
+</p><p>À défaut d'un règlement amiable du litige dans un délai maximum de trente (30) jours à compter de la date de la notification par l’une des Parties du litige décrivant le litige et faisant référence à la présente disposition, le Tribunal de commerce de Lille Métropole sera seul compétent en cas de litige de toute nature ou de contestation relative à la formation ou l'exécution de la commande.
+</p><p>Cette clause s'applique même en cas de référé, de demande incidente ou de pluralité de défendeurs ou d'appel en garantie, et quels que soient le mode et les modalités de paiement, sans que les clauses attributives de juridiction pouvant exister sur les documents des acheteurs puissent mettre obstacle à l'application de la présente clause.
+</p><p><br></p><p><span style="font-weight: bold;" class="color-secondary1">17. Mise à jour des conditions
+</span></p><p><br></p><p>Les conditions générales de fourniture et d’utilisation de l’application sont susceptibles d’être modifiées à tout moment. Les Conditions générales applicables sont celles en vigueur à la date de souscription.
+</p><p>Toute modification des conditions générales de fourniture et d’utilisation de logiciel et des conditions particulières deviendront applicable à compter de leur acceptation par le Client qui reconnaît, en cochant une case prévue à cet effet, en avoir eu connaissance et les avoir acceptées.
+</p><p><br></p><p><span style="font-weight: bold;"><span class="color-secondary1">18. Dispositions générales</span>
+</span></p><p><br></p><p>Cession / Sous-Traitance : Le Contrat est conclu Intuitu Personae en considération de la personne du Client. Le Client s'interdit de céder et/ou transférer le Contrat et/ou tout droit et obligation qui en découlent à un tiers, y compris dans le cadre d’un changement de contrôle direct ou indirect du Client au sens de l’article L233-3 du Code de commerce, par quelque moyen et à quelque titre que ce soit, sauf accord écrit et préalable du Prestataire.
+</p><p>Non renonciation : Sauf disposition contraire, le fait pour l’une ou l’autre des Parties de ne pas revendiquer l’application de l’une quelconque des dispositions du Contrat ou d'acquiescer à son inexécution, ne peut être interprété comme une renonciation aux droits qui découlent pour elle de ladite disposition.
+</p><p>Référence commerciale : INITHY est autorisée par le Client à utiliser et/ou reproduire sa dénomination sociale, son nom commercial, logo et ses marques, et le cas échéant du groupe dont il fait partie, comme référence sur tout support ou à toute occasion dans un but marketing, commercial ou publicitaire.</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p></div>
     </div>
   </div>
               </div></div>
@@ -4332,9 +4141,7 @@ pintrk('page');
       </script>
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=912" data-cookieconsent="ignore"></script>
-        <script type="text/javascript" src="https://static.web-repository.com/scripts/jquery-ui.min.js?v=912" data-cookieconsent="ignore"></script>
-        <link rel="preload stylesheet" as="style" href="https://static.web-repository.com/styles/jquery-ui.min.css?v=912" />
-      <script>
+        <script>
 jQuery(document).ready(function($){
     $("a.not-visible-badge").hide();
 });

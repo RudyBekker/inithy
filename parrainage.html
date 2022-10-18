@@ -12,22 +12,22 @@
 
       <link rel="icon" href="data:," />
 
-      <title>Store</title>
+      <title>INITHY | Parrainage</title>
 
-      <link rel="canonical" href="https://inithy.build.superagency.io/store" />
-      <meta property="og:url" content="https://inithy.build.superagency.io/store"/>
-      <meta itemprop="url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="twitter:url" content="https://inithy.build.superagency.io/store"/>
-      <meta name="description" content="" />
+      <link rel="canonical" href="https://inithy.build.superagency.io/parrainage" />
+      <meta property="og:url" content="https://inithy.build.superagency.io/parrainage"/>
+      <meta itemprop="url" content="https://inithy.build.superagency.io/parrainage"/>
+      <meta name="twitter:url" content="https://inithy.build.superagency.io/parrainage"/>
+      <meta name="description" content="Parrainez des professionnels du sport et de la nutrition pour obtenir la solution INITHY, c'est obtenir de l'argent ou une carte cadeau pour vous faire plaisir ou rendre heureux votre entourage." />
       <meta property="og:site_name" content="inithy" />
-      <meta property="og:title" content="Store"/>
+      <meta property="og:title" content="INITHY | Parrainage"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:description" content=""/>
-      <meta itemprop="name" content="Store"/>
-      <meta itemprop="description" content=""/>
-      <meta name="twitter:title" content="Store"/>
+      <meta property="og:description" content="Parrainez des professionnels du sport et de la nutrition pour obtenir la solution INITHY, c'est obtenir de l'argent ou une carte cadeau pour vous faire plaisir ou rendre heureux votre entourage."/>
+      <meta itemprop="name" content="INITHY | Parrainage"/>
+      <meta itemprop="description" content="Parrainez des professionnels du sport et de la nutrition pour obtenir la solution INITHY, c'est obtenir de l'argent ou une carte cadeau pour vous faire plaisir ou rendre heureux votre entourage."/>
+      <meta name="twitter:title" content="INITHY | Parrainage"/>
       <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:description" content=""/>
+      <meta name="twitter:description" content="Parrainez des professionnels du sport et de la nutrition pour obtenir la solution INITHY, c'est obtenir de l'argent ou une carte cadeau pour vous faire plaisir ou rendre heureux votre entourage."/>
       <script type="text/javascript">
         var WebPlatform = window.WebPlatform || {};
 
@@ -70,253 +70,9 @@
       <link rel="preload stylesheet" as="style" media="(max-width: 480px)"
             href="https://static.web-repository.com/t/theme25/css/trunk-480.min.css?v=912" id="style-480" class="stylesheet"/>
 
-      <script type="text/javascript">
-      WebPlatform.onReady(function () {
-        var root = $('#store-catalog-widget-1666071947663');
-        var hasQuickView = false;
-        var showBuyButtonInLists = false;
-        var sort = '';
-        var searchFilter = '';
-        var filterUrlPart = '';
-        var variationsFilter = null;
-        var sortByFilter = root.find('#sortByFilter');
-        var productsPerPageFilter = root.find('#productsPerPageFilter');
-        var category = '';
-        var lowerPriceRange = 0;
-        var upperPriceRange = Math.abs(100);
-        var maxPrice = Math.abs(100);
-        var subcategories = '';
-        var mobileStoreOverlay = root.find('#mobileStoreOverlay');
-        var storeProductsFilterWrapper = root.find('#storeProductsFilterWrapper');
-        var productFilterMobileButton = root.find('#productFilterMobileButton');
-        var variations = storeProductsFilterWrapper.find('.filter-by-variation');
-        var variationsFilterUrl = '';
-
-        if (variations.length > 0) {
-          variations.on('click', '.variation-filter-link', function (event) {
-            var li = $(event.target).closest('li').toggleClass('active');
-            var url = '';
-            variations.each(function (idx, variation) {
-              variation = $(variation);
-              var checked = variation.find('li.active');
-              if (checked.length > 0) {
-                var filterValues = '';
-                checked.each(function (idx, elem) {
-                  var filter = ($(elem).data('filter') || '') + '';
-                  if (filter) {
-                    if (filterValues !== '')
-                      filterValues += ',';
-                    filterValues += encodeURIComponent(filter.replace('&', '^'));
-                  }
-                });
-                if (filterValues !== '') {
-                  if (url !== '')
-                    url += '&';
-                  url += encodeURIComponent(variation.find('h3').text().replace('&', '^'));
-                  url += '=' + filterValues;
-                }
-              }
-            });
-            variationsFilterUrl = url;
-            refreshFiltering();
-          });
-        }
-
-        if (variationsFilter !== null) {
-          variations.each(function (idx, elem) {
-            var root = $(elem);
-            var heading = root.find('h3').text().toLowerCase();
-            var filtered = [];
-            for (var idx = 0; idx < variationsFilter.length; ++idx) {
-              if (variationsFilter[idx].name.toLowerCase() === heading) {
-                filtered = variationsFilter[idx].values;
-                break;
-              }
-            }
-            if (filtered.length > 0) {
-              var items = root.find('li');
-              items.each(function (idx, li) {
-                var li = $(li);
-                var filter = ((li.data('filter') || '') + '').toLowerCase();
-                for (var idx = 0; idx < filtered.length; ++idx) {
-                  if (filtered[idx].first.toLowerCase() === filter) {
-                    li.addClass('active');
-                    break;
-                  }
-                }
-              });
-            }
-          });
-        }
-
-        var refreshFiltering = function () {
-          var newSort = sortByFilter.val();
-          var newRows = +productsPerPageFilter.val();
-          var newUrl = WebPlatform.Store.baseUrl;
-          if (category !== '')
-            newUrl += '/category/' + category;
-          if (subcategories !== '')
-            newUrl += '/sub/' + subcategories;
-          if (variationsFilterUrl !== '')
-            newUrl += '/var/' + variationsFilterUrl;
-          if (newRows !== 4)
-            newUrl += '/rows/' + newRows;
-          if (newSort)
-            newUrl += '/sort/' + newSort;
-          if (searchFilter)
-            newUrl += '/search/' + encodeURI(searchFilter);
-          if (lowerPriceRange > 0 || upperPriceRange !== maxPrice)
-            newUrl += '/range/' + lowerPriceRange + ',' + upperPriceRange;
-          ClientTools.showLoader();
-          window.location.href = newUrl;
-        };
-        sortByFilter.val(sort).add(productsPerPageFilter).change(refreshFiltering);
-
-        try {
-          root.find('#productsFilter').on('click', '.has-subcategories > a', function (event) {
-            var elem = $(this);
-            var clickedOnArrow = $(event.target).is('.arrow');
-            var li = elem.parent();
-            if (!clickedOnArrow && li.hasClass('open') && li.children('ul').children('.active').length > 0)
-              return;
-            if (li.hasClass('open')) {
-              li.removeClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (li.children('ul').length > 0) {
-              li.addClass('open');
-              return WebPlatform.preventDefault(event);
-            }
-            else
-            if (clickedOnArrow) {
-              li.addClass('open');
-              WebPlatform.makeClientWebsiteRequest({
-                action: 'getStoreSubcategories',
-                data: {
-                  parent: elem.data('id')
-                },
-                onOk: function (result) {
-                  var categoriesPath = [elem.data('url')];
-                  var rootElem = elem.closest('ul');
-                  while (true) {
-                    if (rootElem.hasClass('filter-categories'))
-                      break;
-                    categoriesPath.push(rootElem.parent().children('a').data('url'));
-                    rootElem = rootElem.parent().closest('ul');
-                  }
-
-                  var baseUrl = WebPlatform.Store.baseUrl + '/category/';
-                  for (var idx = categoriesPath.length - 1; idx >= 0; --idx) {
-                    if (idx === categoriesPath.length - 1)
-                      baseUrl += categoriesPath[idx] + '/sub/';
-                    else
-                      baseUrl += categoriesPath[idx] + ',';
-                  }
-
-                  var categories = result.data;
-                  var markup = '<ul>';
-                  for (var idx = 0; idx < categories.length; ++idx) {
-                    var category = categories[idx];
-                    var hasSubcategories = category.left + 1 < category.right;
-                    markup += '<li class="' + (hasSubcategories ? 'has-subcategories' : '') + '">';
-                    markup += '<a data-url="' + category.url + '" data-id="' + category.id + '" href="' + baseUrl + category.url + filterUrlPart + '">' + category.name;
-                    if (hasSubcategories) {
-                      markup += '<div class="arrow"></div>';
-                    }
-                    markup += '</a>';
-                    markup += '</li>';
-                  }
-                  markup += '</ul>';
-                  elem.after(markup);
-                }
-              });
-              return WebPlatform.preventDefault(event);
-            }
-          });
-          var onPriceSliderChanged = $.debounce(800, function () {
-            var newUrl = WebPlatform.clearUrlParameter(window.location.href, 'range', WebPlatform.URL_PARAM_ANY);
-            newUrl = WebPlatform.clearUrlParameter(newUrl, 'page', WebPlatform.URL_PARAM_ANY);
-            if (!newUrl.endsWith('/'))
-              newUrl += '/';
-            newUrl += 'range/' + lowerPriceRange + ',' + upperPriceRange;
-            ClientTools.showLoader();
-            window.location.href = newUrl;
-          });
-          var searchFilterField = $('#searchFilter');
-          if (searchFilterField.length) {
-            var doSearch = function () {
-              var searchVal = searchFilterField.val().trim();
-              if (searchVal !== searchFilter) {
-                searchFilter = searchVal;
-                refreshFiltering();
-              }
-            };
-            searchFilterField.val(searchFilter).keypress(function (e) {
-              if (e.which === 13) {
-                doSearch();
-              }
-            });
-            $('.search-widget-icon').click(doSearch);
-          }
-          root.find('#lowerPriceRange').val(WebPlatform.currToStr(lowerPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find('#upperPriceRange').val(WebPlatform.currToStr(upperPriceRange, WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-          root.find("#priceSlider").slider({
-            values: [lowerPriceRange, upperPriceRange],
-            min: 0,
-            max: maxPrice,
-            step: 5,
-            range: true,
-            slide: function (event, ui) {
-              lowerPriceRange = ui.values[0];
-              upperPriceRange = ui.values[1];
-              root.find('#lowerPriceRange').val(WebPlatform.currToStr(ui.values[0], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              root.find('#upperPriceRange').val(WebPlatform.currToStr(ui.values[1], WebPlatform.Store.currencySymbol, WebPlatform.Store.currencySymbolAtLeft, WebPlatform.Store.currency));
-              onPriceSliderChanged();
-            }
-          });
-          productFilterMobileButton.click(function () {
-            if (mobileStoreOverlay.hasClass('none')) {
-              mobileStoreOverlay.removeClass('none');
-              storeProductsFilterWrapper.show();
-              $('body').addClass('with-product-filter');
-            }
-            else {
-              mobileStoreOverlay.addClass('none');
-              storeProductsFilterWrapper.hide();
-              $('body').removeClass('with-product-filter');
-            }
-          });
-          root.find('.mobile-close-btn').click(function () {
-            productFilterMobileButton.click();
-          });
-        } catch (e) {
-          Log.error(e);
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="viewProduct"]', function () {
-            var id = $(this).closest('.product-item').data('id');
-            WebPlatform.Store.showProductInQuickView(id);
-            return false;
-          });
-        }
-
-        if (hasQuickView || showBuyButtonInLists) {
-          root.find('.products-list').on('click', '[data-role="addToCart"]', function () {
-            var elem = $(this);
-            var product = elem.closest('.product-item');
-            var id = product.data('id');
-            var process = elem.data('process');
-            WebPlatform.Store.addProductToCart(id, process);
-            return false;
-          });
-        }
-      });
-    </script>
-  <meta property="og:image" content="https://content.app-sources.com/" />
-        <meta itemprop="image" content="https://content.app-sources.com/" />
-        <meta name="twitter:image" content="https://content.app-sources.com/"/>
+      <meta property="og:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png" />
+        <meta itemprop="image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png" />
+        <meta name="twitter:image" content="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png"/>
       <!--[if lt IE 9]>
       <script type="text/javascript" src="https://static.web-repository.com/scripts/common/html5shiv.min.js"></script>
       <![endif]-->
@@ -2532,13 +2288,124 @@ pintrk('page');
       <div class="content">
         <div 
       
-      id="container-widget-15041"
+      id="container-widget-1624628077761"
       
       data-type="Container"
       class="grid-row
-       stretched-mobile stretched-tablet"
+       grid-row-fullwidth mobile-only stretched-mobile stretched-tablet"
       data-delay=""
-      style="padding-bottom:3.6784%;
+      style="padding-bottom:0%;
+      padding-top: 3.31126%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628077760"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 7.017543859649122% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628077759"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 18.71345029239766% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626515480694"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center;"></h2><h1 style="text-align: center; "><div style="text-align: center;"><span style="color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0);">Soyez Récompensé</span></div><h1 style="text-align: center;"><span style="color: rgb(0, 0, 0);">En Invitant </span></h1><h1><div style="text-align: center;"><span style="color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0);">un Professionnel</span></div><span style="color: rgb(0, 0, 0);"><div style="text-align: center;"><span style="background-color: rgba(255, 255, 255, 0);">à Découvrir INITHY.</span></div></span></h1></h1><br></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515480488"
+      
+      data-type="Container"
+      class="grid-row
+       mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 3%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col15" id="text-widget-1649871971384"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 2.22327%; margin-left: 0%;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 1.4;"><span style="color: rgb(78, 179, 234); font-weight: bold; background-color: rgba(255, 255, 255, 0);">Recommandez INITHY à un professionnel du sport <br>ou de la nutrition ! <span style="color: rgb(127, 127, 127);">(valable du 03/06/22 au 15/06/22)</span><br></span><br></h2><h3 style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><span class="color-secondary1"><span style="color: rgb(127, 127, 127);">Après souscription de sa part,</span><br>Recevez du CASH</span> ou obtenez votre carte cadeau <span class="color-secondary1">illicado x INITHY</span>, <br>utilisable dans toutes les enseignes partenaires pour toutes souscriptions ci-dessous...<br><br>Souscription au <span style="color: rgb(250, 197, 28);">PACK GOLD</span> mensuel : <span class="color-secondary1">Vous gagnez 50€<br></span><br>Souscription au&nbsp;<span style="color: rgb(250, 197, 28);">PACK GOLD</span> paiement comptant : <br><span class="color-secondary1">Vous gagnez 100€<br></span><br>Souscription au <span style="color: rgb(100, 189, 46);">PACK EMERAUDE : <br><span class="color-secondary1">Vous gagnez 200€</span></span><br></span></span></h3><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);">
+</span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515480487"
+      
+      data-type="Container"
+      class="grid-row
+       mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:9.21053%;
       padding-top: 0%; padding-left: 0;
       background-color: transparent;
         background-position: center center;
@@ -2561,190 +2428,853 @@ pintrk('page');
                  ">
 
               <div class="widget-row with-centered-content">
-                  <div class="widget style-1 catalogue-style-1
-          widgetResponsive col20" id="store-catalog-widget-1666071947663"
-         data-type="system/StoreCatalogWidget"
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1626515480680"
+         data-type="ImageWidget"
          data-delay=""
-         data-animation-duration=""
-         data-animation-delay=""
-         data-animation="lazyAnimation-"
-         style="margin-top: 6%; margin-left: 0;">
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0%; margin-left: 0%;">
+
+      <div class="image-box  scale-on-hover image-position-center" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 89.76608187134502%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" target="_blank" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/Cadeaux-6622593.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1626515480688"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0px; margin-left: 0%;">
+
+      <div class="image-box  scale-on-hover image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 130.99415204678363%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/illicdo-parrainageScreenshot_1-6624383.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" target="_blank" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/illicdo-parrainageScreenshot_1-6624383.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1626515480511"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 3.50877%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1;"><span style="font-weight: 700; font-size: 24px; color: rgb(0, 0, 0);"><br></span></p><p style="text-align: center; line-height: 1.4;"></p><h4 style="text-align: center; line-height: 1.4;"><span style="background-color: rgba(255, 255, 255, 0);"><span style="color: rgb(127, 127, 127); font-weight: bold;">Vous aurez la possibilité de vous faire plaisir sur des millions de références grâce à INITHY et illicado&nbsp;</span><span style="color: rgb(127, 127, 127);">: <span style="font-weight: bold;"><span class="color-secondary1">Sports et loisirs, High-tech, Voyages, Electroménager, Bricolage, Maison, Mode et beauté, Musique</span><span class="color-secondary1">, Jouets, P</span><span class="color-secondary1">uériculture</span><span class="color-secondary1">, etc.</span></span></span></span></h4><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515480661"
+      
+      data-type="Container"
+      class="grid-row
+       mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:8.15789%;
+      padding-top: 0%; padding-left: 0;
+      background-color: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(27deg, rgba(0, 0, 0, 1) 0%, rgba(62, 62, 62, 1) 100%);">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 60%;
+                 padding-left:13%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1626515480660"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 3.691275167785235% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col19" id="text-widget-1649871971385"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: right; "><span style="color: rgb(255, 255, 255); font-family: &quot;Metropolis BOLD&quot;; font-size: 20px;">Parrainer un Contact, <br>Si il souscrit, <br>Vous avez une C</span><span style="text-align: left; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); font-family: &quot;Metropolis BOLD&quot;; font-size: 20px;">ommission</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 40%;
+                 padding-left:0%;padding-right:0%;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1626515480658"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0%;">
       <div class="main-widget-content">
-        <style type="text/css">
-          </style>
+        <div style="text-align: right;">
+          <a href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1 border-color-secondary1 color-secondary4" 
+             style="font-size: 17px; 
+             letter-spacing:0px;border-width: 3px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: nullpx nullpx nullpx nullpx  none;
+             border-radius: 18px;">
 
-        <div class="style-1 product-list-wrapper center-align quick-view-1 products-per-row-2 side-filter">
-          <div class="lane-list-wrapper">
-            <div class="products-filter products-filter-style-2 inline-filter  inline-filter">
-              <section>
-                <ul class="filter-categories">
-                  <li class="active"><a href="/store" title="Tout" data-filter="none">Tout</a></li>
-                    <li class=""><a href="/store/category/yoga" title="Yoga">Yoga</a></li>
-                    </ul>
-              </section>
+            <span class="bold">
+                    COMMENCER MAINTENANT</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515480486"
+      
+      data-type="Container"
+      class="grid-row
+       mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:17.3684%;
+      padding-top: 7.89474%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626515480654"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h3 style="text-align: center;"><span style="color: rgb(0, 0, 0); font-weight: bold;">Comment ça Marche ?</span></h3></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1649871971386"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1;"><span style="font-weight: 700; font-size: 24px; color: rgb(0, 0, 0);"><br></span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">1 -</span> Confiez-nous vos contacts en validant le </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">formulaire de parrainage. (c'est obligatoire pour faire partie du parrainage officiellement, le formulaire doit être rempli avant l'inscription de ce dernier).</span><span style="font-weight: 700; font-size: 24px; color: rgb(0, 0, 0);"><br></span></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">2 -</span> Vos filleuls seront accompagnés par nos conseillers </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">dans la découverte du logiciel de coaching INITHY</span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">.</span></div><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">3 -</span> </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">Votre filleul devient client</span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">, un conseillé vous contactera pour vous prévenir, vous recevrez votre carte cadeau chez vous dans les 14 jours ou un virement (rapidement)</span></div><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; background-color: rgba(255, 255, 255, 0); color: rgb(127, 127, 127);"><span style="font-weight: bold;">4 -</span> <span style="font-weight: bold;">Plus vous envoyez de professionnels du sport&nbsp;</span></span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">et de la nutrition qui <span class="color-secondary1">souscrivent à</span><span class="color-secondary1"> notre outil&nbsp;</span></span></span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span class="color-secondary1" style="font-weight: bold;">de coaching</span>, plus vous gagnez de cartes&nbsp;</span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">cadeaux ou de cash.<br></span></div><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><br></span><p></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);"><br></span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-style: italic;">(ex. si vous avez 5 cartes cadeaux de 50€ vous pourrez les additionner : 250€, et acheter ce que vous désirez dans n'importe quelles enseignes sur le web ou en magasin).</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1626515480631"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 3.38889%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" 
+             target="_self" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    J'INVITE UNE PERSONNE DE MON RESEAU</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1623958161238"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:0%;
+      padding-top: 3.31126%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+          
+         widgetResponsive spacer col20" id="spacer-widget-1623958161234"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 5.266622778143516% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626515480695"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center;"></h2><h1 style="text-align: center; "><span style="color: rgb(0, 0, 0);">Soyez Récompensé En Invitant <br>un Professionnel à Découvrir INITHY.</span></h1><br></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626456074255"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInDown"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center;"></h2><h1 style="text-align: center; "><span style="color: rgb(0, 0, 0);">Soyez Récompensé En Invitant <br>un Professionnel à Découvrir INITHY.</span></h1><br></div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624563889908"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 18.71345029239766% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col15" id="text-widget-1623958161237"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 2.22327%; margin-left: 0%;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 1.4;"><span style="color: rgb(78, 179, 234); font-weight: bold; background-color: rgba(255, 255, 255, 0);">Recommandez INITHY à un professionnel du sport <br>ou de la nutrition ! <span style="color: rgb(127, 127, 127);">(valable du 03/06/22 au 15/06/22)</span><br></span><br></h2><h3 style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);"><span style="font-weight: bold;"><span class="color-secondary1"><span style="color: rgb(127, 127, 127);">Après souscription de sa part,</span><br>Recevez du CASH</span> ou obtenez votre carte cadeau <span class="color-secondary1">illicado x INITHY</span>, <br>utilisable dans toutes les enseignes partenaires pour toutes souscriptions ci-dessous...<br><br>Souscription au <span style="color: rgb(250, 197, 28);">PACK GOLD</span> mensuel : <span class="color-secondary1">Vous gagnez 50€<br></span>Souscription au <span style="color: rgb(250, 197, 28);">PACK GOLD</span> paiement comptant : <span class="color-secondary1">Vous gagnez 100€<br></span>Souscription au <span style="color: rgb(100, 189, 46);">PACK EMERAUDE : <span class="color-secondary1">Vous gagnez 200€</span></span><br><br><br></span></span></h3><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);">
+</span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515481124"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:3%;
+      padding-top: 3%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col12" id="image-widget-1623958161235"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0px; margin-left: 0%;">
+
+      <div class="image-box  scale-on-hover image-position-default" 
+           style="max-width: 839px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 61.025029797377826%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/illicdo-parrainageScreenshot_1-6624383.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" target="_blank" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/illicdo-parrainageScreenshot_1-6624383.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
             </div>
+        </div>
+      </div>
+    </div>
+  <div class="widget 
+         anim-delayed-item widgetResponsive imageWidget col7" id="image-widget-1626515481578"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0%; margin-left: 0%;">
 
-            <div class="filter-lane">
-              <div class="flex aling-center flex-column space-between filter-inner-lane">
-                <div>
-                  <h1>Tous les produits</h1>
-                  <div class="products-showing">
-                    <span>
-                      Montrer les 3 résultats</span>
-                  </div>
-                </div>
-                <div class="mobile-overlay none" id="mobileStoreOverlay"></div>
-                <div class="col20 f-left mobile-view">
-                  <a id="productFilterMobileButton" class="mobile-store-filter">Filtre produit</a>
-                  </div>
-                <div class="none">
-                  <select id="productsPerPageFilter">
-                    <option value="" disabled>Products per page</option>
-                    <option value="4" selected>8</option>
-                    <option value="6" >12</option>
-                    <option value="8" >16</option>
-                  </select>
-                </div>
-                <div class="flex align-center">
-                  <label>Trier par</label>
-                  <select id="sortByFilter">
-                    <option value="">Le plus récent d'abord</option>
-                    <option value="a-z">A - Z</option>
-                    <option value="z-a">Z - A</option>
-                    <option value="price">Le moins cher d'abord</option>
-                    <option value="price-desc">Le plus cher d'abord</option>
-                  </select>
-                </div>
-              </div>
+      <div class="image-box  scale-on-hover image-position-center" 
+           style="max-width: 489px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 98.97750511247445%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+                 href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" target="_blank" 
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/uploads/Images/Cadeaux-6622593.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1626515480516"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1;"><span style="font-weight: 700; font-size: 24px; color: rgb(0, 0, 0);"><br><br></span></p><p style="text-align: center; line-height: 1.4;"></p><h3 style="text-align: center; line-height: 1.2;"><span style="background-color: rgba(255, 255, 255, 0);"><span style="color: rgb(127, 127, 127); font-weight: bold;">Vous aurez la possibilité de vous faire plaisir sur des millions de références grâce à INITHY et illicado&nbsp;</span><span style="color: rgb(127, 127, 127);">: <span style="font-weight: bold;"><span class="color-secondary1">Sports et loisirs, High-tech, Voyages, Electroménager, Bricolage, Maison, Mode et beauté, Musique</span><span class="color-secondary1">, Jouets, P</span><span class="color-secondary1">uériculture</span><span class="color-secondary1">, etc.</span></span></span></span></h3><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628077755"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:2.62743%;
+      padding-top: 2.62743%; padding-left: 0;
+      background-color: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(27deg, rgba(0, 0, 0, 1) 0%, rgba(62, 62, 62, 1) 100%);">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 61%;
+                 padding-left:0%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-            <div class="products-list">
-              <div class="product-item  " data-id="16"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only  
+         widgetResponsive spacer col20" id="spacer-widget-1624628077754"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 3.508771929824561% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1624628077753"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">Accédez à La Démo </span></p><p style="text-align: center;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px; color: rgb(255, 255, 255);">d'INITHY Gratuitement</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 39%;
+                 padding-left:0%;padding-right:0%;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-                      <a href="/store/yoga-for-experts">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thao-le-hoang-733047-unsplash-7115107-1880186.jpg" alt="Yoga for Experts"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-experts" class="highlightColor">
-                        Yoga for Experts</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-experts">
-                        $100.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="15"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1624628077752"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1hwTjxkQzSRuVqRVPX-Gcbg48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1 border-color-secondary1 color-secondary4" 
+             style="font-size: 17px; 
+             letter-spacing:0px;border-width: 3px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: nullpx nullpx nullpx nullpx  none;
+             border-radius: 18px;">
 
-                      <a href="/store/yoga-for-advanced">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/bruce-mars-558730-unsplash-7115090-1880186.jpg" alt="Yoga for Advanced"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-advanced" class="highlightColor">
-                        Yoga for Advanced</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-advanced">
-                        $80.00</a>
-                    </span>
-                    </div>
-                  </div>
-              <div class="product-item  " data-id="14"
-                     style="padding: 20px; border-radius: 0px;
-                     
-                     ">
-                  <div class="product-main-photo has-badge " style="
-                       
-                       ">
-                    <div class="product-photo-inner-wrapper">
-                      <div class="quick-buttons-wrapper flex align-center justify-center">
-                        <div class="quick-buttons-wrapper-inner flex align-center justify-center">
-                          <a class="quick-store-button flex align-center" data-role="addToCart" data-process="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M18,20H6V8h2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8h4v2c0,0.55,0.45,1,1,1s1-0.45,1-1V8 h2V20z"/></g></svg>
-                          </a>
-                          <a class="quick-store-button flex align-center" data-role="viewProduct"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="18px" fill="#000000"><rect fill="none" height="24" width="24"/><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></a>
-                        </div>
-                      </div>
+            <span class="bold">
+                    COMMENCER MAINTENANT</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624532112938"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:2.62743%;
+      padding-top: 2.52233%; padding-left: 0;
+      background-color: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(27deg, rgba(0, 0, 0, 1) 0%, rgba(62, 62, 62, 1) 100%);">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 60%;
+                 padding-left:13%;padding-right:0%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-                      <a href="/store/yoga-for-newbies">
-                        <img src="https://content.app-sources.com/s/52826833181530162/uploads/Images/thought-catalog-685332-unsplash-7115108-1880189.jpg" alt="Yoga for Newbies"
-                                 style="" />
-                          </a>
-                    </div>
-                  </div>
-                  <div class="product-item-description">
-                    <h3 class="">
-                      <a href="/store/yoga-for-newbies" class="highlightColor">
-                        Yoga for Newbies</a>
-                    </h3>
-                    <span class="product-item-price ">
-                      <a href="/store/yoga-for-newbies">
-                        $50.00</a>
-                    </span>
-                    </div>
-                  </div>
-              </div>
-            <div class="filter-lane pagination-lane">
-              </div>
-          </div>
+              <div class="widget-row ">
+                  <div class="widget 
+          
+         widgetResponsive spacer col20" id="spacer-widget-1624532112937"
+         data-type="Spacer" 
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="widget-preserving-ratio-outer" style="padding-bottom: 3.65296803652968% ">
+        <div class="widget-preserving-ratio-inner"></div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col19" id="text-widget-1624532112936"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: right; "><span style="color: rgb(255, 255, 255); font-family: &quot;Metropolis BOLD&quot;; font-size: 20px;">Parrainer un Contact, Si il souscrit, Vous avez une C</span><span style="text-align: left; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); font-family: &quot;Metropolis BOLD&quot;; font-size: 20px;">ommission</span></p></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 40%;
+                 padding-left:0%;padding-right:0%;background-color: transparent;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
 
-          <div class="products-filter" id="storeProductsFilterWrapper">
-              <a class="mobile-close-btn"><img src="https://static.web-repository.com/images/feed-close.png"></a>
-              <section>
-                <h3>Catégorie</h3>
-                <ul class="filter-categories" id="productsFilter">
-                  <li class="active"><a href="/store/">Tous les produits</a></li>
-                  <li class="">
-                      <a data-url="yoga" data-id="8" href="/store/category/yoga" title="Yoga">Yoga</a>
-                      </li>
-                  </ul>
-              </section>
-              <section class="price-section">
-                <h3>Prix</h3>
-                  <div id="priceSlider"></div>
-                  <input readonly value="" id="lowerPriceRange">
-                  <input readonly value="" id="upperPriceRange">
-                </section>
-              </div>
-          </div>
+              <div class="widget-row ">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1624532112935"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 0%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: right;">
+          <a href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" 
+             target="_blank" class="theme-button no-hover bg-color-secondary1 border-color-secondary1 color-secondary4" 
+             style="font-size: 17px; 
+             letter-spacing:0px;border-width: 3px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: nullpx nullpx nullpx nullpx  none;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    COMMENCER MAINTENANT</span>
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1624628077751"
+      
+      data-type="Container"
+      class="grid-row
+       grid-row-fullwidth phone-hidden tablet-hidden mobile-only stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:2.78508%;
+      padding-top: 2.78508%; padding-left: 0;
+      background-color: transparent;
+        background-position: default;
+        background-repeat: repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 50%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628077750"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInRight"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 342px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 22.22222222222222%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/noun_Eye_1634250-3963193.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/noun_Eye_1634250-3963193.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1624628077749"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 0.5;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 18px; color: rgb(0, 0, 0);">Marketing visible dans </span></h2><h2 style="text-align: center; line-height: 0.5;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 18px; color: rgb(0, 0, 0);">les profils clients<br></span></h2><div style="text-align: center; line-height: 0.5;"><span style="color: rgb(127, 127, 127);"><br></span></div><div style="text-align: center; line-height: 1.2;"><span style="color: rgb(127, 127, 127);"><br><span style="font-size: 16px;">Chacun de vos clients verront vos activités marketing sur leur profil facilement.&nbsp;</span></span></div><div style="text-align: center; line-height: 1.2;"><span style="color: rgb(127, 127, 127);"><span style="font-size: 16px;"><br></span></span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">40% des clients sont sur leur profil pour modifier leur photo de couverture, de&nbsp;</span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">profil, customiser leur sport, leurs liens des réseaux sociaux et l’accès&nbsp;</span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">à tous les réglages de l’appli, profitez-en.</span></div></div>
+    </div>
+  </div>
+              </div><div class="grid-column    " 
+                 style="width: 50%;
+                 padding-left:2%;padding-right:2%;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row ">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive imageWidget col20" id="image-widget-1624628077748"
+         data-type="ImageWidget"
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInLeft"
+         style="margin-top: 0px; margin-left: 0px;">
+
+      <div class="image-box  image-position-default" 
+           style="max-width: 328.525px;">
+        <div class="widget-preserving-ratio-outer " 
+             style="padding-bottom: 22.524921999847805%" >
+
+          <div class="widget-preserving-ratio-inner" data-slide="https://content.app-sources.com/s/20124825426525111/uploads/Images/noun_Supply_Chain_1896515-3963195.png">
+            <a class="lazyImage flex flex-col
+                image-fit"
+               
+               >
+              <img src="https://content.app-sources.com/s/20124825426525111/thumbnails/640x480/Images/noun_Supply_Chain_1896515-3963195.png" class="flex-none" alt="" style=""  loading="lazy" />
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         mobile-only anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1624628077747"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><h2 style="text-align: center; line-height: 1;"><span style="font-family: &quot;Metropolis BOLD&quot;; font-size: 20px;">Redirection marketing<br></span></h2><div style="text-align: center; line-height: 1.2;"><span style="color: rgb(127, 127, 127);"><br><span style="font-size: 16px;">Redirigez vos clients vers votre planning de rendez-vous Calendly par exemple,&nbsp;</span></span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">vers vos publications récentes, vos évènements, vos partenaires, vos produits,&nbsp;</span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">vers des vidéos pertinentes comme «&nbsp;Comment prendre ses mensurations&nbsp;».</span></div><div style="text-align: center; line-height: 1.2;"><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);"><br></span><span style="color: rgb(127, 127, 127); font-size: 16px; background-color: rgba(255, 255, 255, 0);">Envoyez-les vers le meilleur !</span></div></div>
+    </div>
+  </div>
+              </div></div>
+      </div>
+  <div 
+      
+      id="container-widget-1626515481122"
+      
+      data-type="Container"
+      class="grid-row
+       phone-hidden tablet-hidden stretched-mobile stretched-tablet"
+      data-delay=""
+      style="padding-bottom:3%;
+      padding-top: 3%; padding-left: 0;
+      background-color: transparent;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+      
+      background-image: none;">
+      <div class="grid-content ">
+          <div class="grid-column    " 
+                 style="width: 100%;
+                 padding-left:0px;padding-right:0px;
+                 background-image: none;
+                 
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                   background-position: center center;
+                 
+                 top: 0px;
+                 
+                 ">
+
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget headingWidget col20" id="heading-widget-1626515480697"
+         data-type="HeadingWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-fadeInDown"
+         style="margin-top: 0px; margin-left: 0px;">
+      <div class="text-widget-content"><h3 style="text-align: center;"><span style="color: rgb(0, 0, 0); font-weight: bold;">Comment ça Marche ?</span></h3></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive textWidget col20" id="text-widget-1626515481122"
+         data-type="TextWidget" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-1"
+         style="margin-top: 0%; margin-left: 0px;">
+      <div class="text-widget-content"><p style="text-align: center; line-height: 1;"><span style="font-weight: 700; font-size: 24px; color: rgb(0, 0, 0);"><br><br></span></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">1 -</span> Confiez-nous vos contacts en validant le </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">formulaire de parrainage. (c'est obligatoire pour faire partie du parrainage officiellement, le formulaire doit être rempli avant l'inscription de ce dernier).</span></div><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">2 -</span> Vos filleuls seront accompagnés par nos conseillers </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">dans la découverte du logiciel de coaching INITHY</span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">.</span></div><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">3 -</span> </span><span class="color-secondary1" style="background-color: rgba(255, 255, 255, 0); font-weight: bold;">Votre filleul devient client</span><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">, un conseillé vous contactera pour vous prévenir, vous recevrez votre carte cadeau chez vous dans les 14 jours ou un virement (rapidement)</span></div><div style="text-align: center;"><span style="color: rgb(127, 127, 127);"><br></span></div><p></p><p style="text-align: center; line-height: 1.4;"></p><div style="text-align: center;"><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; background-color: rgba(255, 255, 255, 0); color: rgb(127, 127, 127);"><span style="font-weight: bold;">4 -</span> <span style="font-weight: bold;">Plus vous envoyez de professionnels du sport&nbsp;</span></span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span style="font-weight: bold;">et de la nutrition qui <span class="color-secondary1">souscrivent à</span><span class="color-secondary1"> notre outil&nbsp;</span></span></span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><span class="color-secondary1" style="font-weight: bold;">de coaching</span>, plus vous gagnez de cartes&nbsp;</span><span style="font-family: &quot;Open Sans&quot;; font-size: 16px; color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);">cadeaux ou de cash.<br></span></div><span style="color: rgb(127, 127, 127); background-color: rgba(255, 255, 255, 0);"><br></span><p></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127);"><br></span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-style: italic;">(ex. si vous avez 5 cartes cadeaux de 50€ vous pourrez les additionner : 250€, et acheter ce que vous désirez dans n'importe quelles enseignes sur le web ou en magasin).</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p><p style="text-align: center; line-height: 1.4;"><span style="color: rgb(127, 127, 127); font-weight: 700;">
+</span></p></div>
+    </div>
+  </div>
+              <div class="widget-row with-centered-content">
+                  <div class="widget 
+         anim-delayed-item widgetResponsive buttonWidget col20" id="button-widget-1625749850324"
+         data-type="Button" 
+         data-delay=""
+         data-animation-duration="1100"
+         data-animation-delay="0"
+         data-animation="lazyAnimation-bounceIn"
+         style="margin-top: 3.38889%; margin-left: 0%;">
+      <div class="main-widget-content">
+        <div style="text-align: center;">
+          <a href="https://share.hsforms.com/1RV_efMnGSI2e1LWSNAs6Gw48btt" 
+             target="_self" class="theme-button no-hover bg-color-secondary1  color-secondary4" 
+             style="font-size: 17px; 
+             border-color: rgba(255, 255, 255, 1);letter-spacing:0px;border-width: 0px;
+             padding: 24px 48px;
+             width: auto;
+             box-shadow: -8px 6px 15px 0px rgba(0, 0, 0, 0.3) ;
+             border-radius: 18px;">
+
+            <span class="bold">
+                    J'INVITE UNE PERSONNE DE MON RESEAU</span>
+                </a>
+        </div>
       </div>
     </div>
   </div>
@@ -4332,9 +4862,7 @@ pintrk('page');
       </script>
 
       <script type="text/javascript" src="https://static.web-repository.com/scripts/platform.client.min.js?v=912" data-cookieconsent="ignore"></script>
-        <script type="text/javascript" src="https://static.web-repository.com/scripts/jquery-ui.min.js?v=912" data-cookieconsent="ignore"></script>
-        <link rel="preload stylesheet" as="style" href="https://static.web-repository.com/styles/jquery-ui.min.css?v=912" />
-      <script>
+        <script>
 jQuery(document).ready(function($){
     $("a.not-visible-badge").hide();
 });
